@@ -1,0 +1,39 @@
+.progressStep{
+    position:absolute;
+    width:80%;
+    justify-content: center;
+    align-items: center;
+    top:50%;
+    left:5%; 
+}
+
+.progressStep .step{
+    font-size:1.2rem;
+    font-family:'EB Garamond', serif;
+}
+.progressStep .step p{
+    position: relative;
+    color:gray;
+}
+.progressStep .step p::after{
+    position:absolute;
+    left:20px;
+    bottom:-10px;
+    width:80%;
+    height:6px;
+    background-color: rgba(#34495E,0.3);
+    content: '';
+}
+.progressStep .step.now p::after{
+    background-color: rgba(#34495E,0.8);
+}
+.progressStep .step.now p{
+    color:black;
+    font-weight:500;
+}
+@media (max-width: 576px){
+    .progressStep{
+        width:100%;
+        left:0%; 
+    }
+}

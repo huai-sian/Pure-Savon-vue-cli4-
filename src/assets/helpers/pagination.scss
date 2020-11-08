@@ -1,0 +1,24 @@
+.pages{
+    margin-bottom:1rem;
+}
+.pages .page{
+   display: inline-block;
+   padding:4px 1rem;
+}
+.pages .page.active .pageNum{
+    border-bottom:1px solid #34495E;
+    font-weight:500;
+}
+.pages .page.disabled .pageNum{
+    color: rgba($color: #85929E, $alpha: 0.7);
+    cursor: default;
+    pointer-events: none;//＊點擊並不會觸發事件
+    
+}
+.pages .page .pageNum{
+    color:#34495E;
+    font-size: 1rem;
+}
+.pages .page .pageNum:hover{
+    text-decoration: none;
+}
