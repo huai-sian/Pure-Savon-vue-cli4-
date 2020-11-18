@@ -17,7 +17,7 @@
                   <div class="pro-title" @click.prevent="$router.push(`/product_detail/${item.product.id}`)">{{ item.product.title }}</div>
                 </div>
                 <div class="col-2 p-0">
-                  <div class="pro-qty">{{ item.qty }}</div>
+                  <div class="pro-qty">x{{ item.qty }}</div>
                 </div>
                 <div class="col-4 p-0">
                   <div class='pro-price'>NT{{ item.final_total / item.qty | floor | currency }}</div>

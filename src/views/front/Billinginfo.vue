@@ -184,6 +184,7 @@ export default {
         if (response.data.success) {
           vm.carts = response.data.data
           vm.cartactual = response.data.data.carts
+          vm.cartLength = 0
           vm.cartactual.forEach(item => {
             vm.cartLength += item.qty
           })
