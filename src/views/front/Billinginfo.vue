@@ -28,7 +28,8 @@
                     </div>
                   </div>
                   <div class='col-2 p-0'>
-                    <div class='pro_price'>NT{{ item.product.origin_price|currency }}</div>
+                    <div class='pro_price' v-if='!item.price'>NT{{ item.product.origin_price|currency }}</div>
+                    <div class='pro_price' v-else>NT{{ item.product.price|currency }}</div>
                   </div>
                 </div>
               </li>

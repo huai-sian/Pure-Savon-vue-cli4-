@@ -24,7 +24,7 @@
                   <tr class='pb-0' v-for='item in wish' :key='item.id'>
                     <td width='10%'><i class="fas fa-shopping-cart" @click.prevent='addTocart(item)'></i></td>
                     <td><div style="width:3rem;height:3rem"><img  class="img-fluid" :src="item.imageUrl" alt=""></div></td>
-                    <td width='50%' @click.prevent='$router.push(`/product_detail/${item.id}`)' class='wish_title'>item.title}}</td>
+                    <td width='50%' @click.prevent='$router.push(`/product_detail/${item.id}`)' class='wish_title'>{{ item.title }}</td>
                     <td width='10%'><span class='close' @click.prevent='removeWish(item)'>X</span></td>
                   </tr>
                 </tbody>
