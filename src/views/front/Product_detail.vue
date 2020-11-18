@@ -1,104 +1,104 @@
 <template>
-    <div id='product_detail'>
-        <loading :active.sync="isLoading" >
-        </loading>
-        <Bannerimg>
-            <nav aria-label="breadcrumb" class='breadmark'>
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#" @click.prevent="$router.push('/')">{{ $t("Product_detail.bread_home") }}</a></li>
-                    <li class="breadcrumb-item"><a href="#" @click.prevent="$router.push('/productlist')">{{ $t("Product_detail.bread_store") }}</a></li>
-                    <li class="breadcrumb-item"><a href="#" @click.prevent="$router.push({name:'Productlist',params:{series:product.category}})">{{ $t("Product_detail.series") }}</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">{{product.title}}</li>
-                </ol>
-            </nav>
-        </Bannerimg>
-        <div class='container'>
-            <div class='row product_info'>
-                <div class='col-lg-6 col-md-7'>
-                    <div class='product_pic'>
-                        <img :src="product.imageUrl" alt="">
-                    </div>
-                </div>
-                <div class='col-lg-6 col-md-5'>
-                    <ul class='product_meta'>
-                       <li>
-                           <h3>{{product.title}}</h3>
-                       </li>
-                       <li>
-                           <p class='origin_pricesolo' v-if="!product.price">NT{{product.origin_price | currency}}</p>
-                           <del class='origin_price' v-if="product.price">NT{{product.origin_price|currency}}</del>
-                       </li>
-                       <li>
-                           <p class="salesprice" v-if='product.price'>NT{{product.price | currency}}</p>
-                       </li>
-                       <li>
-                           <div class='numControl'>
-                               <button type="button" class=" btn-minus" data-quantity="minus" data-field="quantity" @click.prevent="changeNum(-1)">
-                                <i class="fa fa-minus" aria-hidden="true"></i>
-                                </button>
-                                <input class="amount" type="number" max="10" min='1' v-model="productnum" @change='changeAmount(productnum)'>
-                                <button type="button" class=" btn-plus" data-quantity="plus" data-field="quantity" @click.prevent="changeNum(1)">
-                                <i class="fa fa-plus" aria-hidden="true"></i>
-                                </button>
-                           </div>
-                           <button class='btn btn-cart' @click.prevent='addToCart(product,productnum)'><i class='fas fa-shopping-cart'></i>加入購物車</button>
-                       </li>
-                       <li>
-                           <p class='product_des'>{{product.description}}</p>
-                       </li>
-                       <li>
-                           <p class='product_con'>{{product.content}}</p>
-                       </li>
-                     </ul>
-                </div>
-            </div>
-            <div class='product_intro'>
-                <h4 class='mb-4 h4'>{{ $t("Product_detail.howtouse_title") }}</h4>
-                <p class='mb-4'>{{ $t("Product_detail.howtouse") }}</p>
-                <h4 class='mb-4 h4'>{{ $t("Product_detail.warning_title") }}</h4>
-                <p class='mb-4'>{{ $t("Product_detail.warning") }}</p>
-                <h4 class='mb-4 h4'>{{ $t("Product_detail.notice_title") }}</h4>
-                <div class="notice">
-                    <div class='return'>
-                        <h4 @click.prevent='accordion' class='notice_title'>{{ $t("Product_detail.noticesub1") }}</h4>
-                        <p class='notice_txt'>{{ $t("Product_detail.noticesub1_con") }}</p>
-                    </div>
-                    <div class='aware'>
-                        <h4 @click.prevent='accordion' class='notice_title'>{{ $t("Product_detail.noticesub2") }}</h4>
-                        <p class='notice_txt'>{{ $t("Product_detail.noticesub2_con") }}</p>
-                    </div>
-                      <div class='ship'>
-                        <h4 @click.prevent='accordion' class='notice_title'>{{ $t("Product_detail.noticesub3") }}</h4>
-                        <p class='notice_txt'>{{ $t("Product_detail.noticesub3_con") }}</p>
-                    </div>
-                </div>
-            </div>
-            <div class='related'>
-                <h3>{{ $t("Product_detail.related") }}</h3>
-                <hr>
-                <div class="related_content row">
-                    <div class='col-md-4 col-sm-6 col-12 d-flex justify-content-start align-item-center'  v-for='item in filterSimilars' :key='item.id'>
-                        <div class='productCard' @click.prevent='goRelated(item.id)'>
-                            <div class='top'>
-                                <img :src="item.imageUrl" alt="">
-                                <div class='tag'>特價中</div>
-                            </div>
-                            <div class='bottom'>
-                                <h3>{{item.title}}</h3>
-                                  <div class='price'>NT${{item.origin_price}}</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <div class='product_detail'>
+    <loading :active.sync="isLoading" >
+    </loading>
+    <Bannerimg>
+      <nav aria-label="breadcrumb" class='breadmark'>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#" @click.prevent="$router.push('/')">{{ $t("Product_detail.bread_home") }}</a></li>
+          <li class="breadcrumb-item"><a href="#" @click.prevent="$router.push('/productlist')">{{ $t("Product_detail.bread_store") }}</a></li>
+          <li class="breadcrumb-item"><a href="#" @click.prevent="$router.push({ name:'Productlist',params:{ series:product.category } })">{{ $t("Product_detail.series") }}</a></li>
+          <li class="breadcrumb-item active" aria-current="page">{{ product.title }}</li>
+        </ol>
+      </nav>
+    </Bannerimg>
+    <div class='container'>
+      <div class='row product_info'>
+        <div class='col-lg-6 col-md-7'>
+          <div class='product_pic'>
+            <img :src="product.imageUrl" alt="">
+          </div>
         </div>
+        <div class='col-lg-6 col-md-5'>
+          <ul class='product_meta'>
+            <li>
+              <h3>{{ product.title }}</h3>
+            </li>
+            <li>
+              <p class='origin_pricesolo' v-if="!product.price">NT{{ product.origin_price | currency }}</p>
+              <del class='origin_price' v-if="product.price">NT{{ product.origin_price|currency }}</del>
+            </li>
+            <li>
+              <p class="salesprice" v-if='product.price'>NT{{ product.price | currency }}</p>
+            </li>
+            <li>
+              <div class='numControl'>
+                <button type="button" class=" btn-minus" data-quantity="minus" data-field="quantity" @click.prevent="changeNum(-1)">
+                  <i class="fa fa-minus" aria-hidden="true"></i>
+                </button>
+                <input class="amount" type="number" max="10" min='1' v-model="productnum" @change='changeAmount(productnum)'>
+                <button type="button" class=" btn-plus" data-quantity="plus" data-field="quantity" @click.prevent="changeNum(1)">
+                  <i class="fa fa-plus" aria-hidden="true"></i>
+                </button>
+              </div>
+              <button class='btn-cart' @click.prevent='addToCart(product,productnum)'><i class='fas fa-shopping-cart'></i>加入購物車</button>
+            </li>
+            <li>
+              <p class='product_des'>{{ product.description }}</p>
+            </li>
+            <li>
+              <p class='product_con'>{{ product.content }}</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class='product_intro'>
+        <h4 class='mb-4 h4'>{{ $t("Product_detail.howtouse_title") }}</h4>
+        <p>{{ $t("Product_detail.howtouse") }}</p>
+        <h4 class='mb-4 h4'>{{ $t("Product_detail.warning_title") }}</h4>
+        <p>{{ $t("Product_detail.warning") }}</p>
+        <h4 class='mb-4 h4'>{{ $t("Product_detail.notice_title") }}</h4>
+        <div class="notice">
+          <div class='return'>
+            <h4 class='notice_title'>{{ $t("Product_detail.noticesub1") }}</h4>
+            <p class='notice_txt'>{{ $t("Product_detail.noticesub1_con") }}</p>
+          </div>
+          <div class='aware'>
+            <h4 class='notice_title'>{{ $t("Product_detail.noticesub2") }}</h4>
+            <p class='notice_txt'>{{ $t("Product_detail.noticesub2_con") }}</p>
+          </div>
+          <div class='ship'>
+            <h4 class='notice_title'>{{ $t("Product_detail.noticesub3") }}</h4>
+            <p class='notice_txt'>{{ $t("Product_detail.noticesub3_con") }}</p>
+          </div>
+        </div>
+      </div>
+      <div class='related'>
+        <h3>{{ $t("Product_detail.related") }}</h3>
+        <hr>
+        <div class="related_content row">
+          <div class='col-md-4 col-sm-6 col-12 d-flex justify-content-start align-item-center'  v-for='item in filterSimilars' :key='item.id'>
+            <div class='productCard' @click.prevent='goRelated(item.id)'>
+              <div class='top'>
+                <img :src="item.imageUrl" alt="">
+                <div class='tag'>特價中</div>
+              </div>
+              <div class='bottom'>
+                <h3>{{ item.title }}</h3>
+                <div class='price'>NT${{ item.origin_price }}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </template>
 <script>
-import Bannerimg from '../../components/Bannerimg'
+import Bannerimg from '@/components/Bannerimg'
 import $ from 'jquery'
 export default {
-  name: 'ProductDetail',
+  name: 'Product_detail',
   components: {
     Bannerimg
   },
@@ -120,8 +120,8 @@ export default {
       const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/product/${vm.productId}`
       vm.$http.get(api).then((response) => {
         vm.product = response.data.product
-        vm.isLoading = false
         vm.productnum = 1
+        vm.isLoading = false
       })
     },
     getSimilarproducts () {
@@ -152,7 +152,7 @@ export default {
         vm.$set(product, 'qty', qty)
         vm.cart.push(product)
       } else {
-        const tempProduct = Object.assign({}, vm.cart[productIndex])
+        const tempProduct = { ...vm.cart[productIndex] }
         tempProduct.qty += qty
         const total = parseInt((tempProduct.origin_price * tempProduct.qty), 10)
         tempProduct.total = total
@@ -162,7 +162,7 @@ export default {
       localStorage.setItem('cart', JSON.stringify(vm.cart))
       vm.$bus.$emit('message:push', '商品已加入購物車', 'success')
       vm.$bus.$emit('cart:get')
-      this.getCart()
+      vm.getCart()
     },
     changeNum (qty) {
       const amount = this.productnum + qty

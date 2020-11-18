@@ -1,18 +1,18 @@
 <template>
   <div>
-      <form class="form-signin" @submit.prevent="signin">
-        <h1 class="h3 mb-3 font-weight-normal text-center"><i class="fas fa-user-cog"></i>登入</h1>
-        <label for="inputEmail" class="sr-only">Email address</label>
-        <input type="email" id="inputEmail" class="form-control" v-model="user.username" placeholder="Email address" required autofocus>
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="inputPassword" class="form-control" v-model="user.password" placeholder="Password" required>
-        <div class="checkbox mb-3">
-          <label>
-            <input type="checkbox" value="remember-me"> Remember me
-          </label>
-        </div>
-        <button class="btn btn-lg btn-block btn-signin" type="submit">Sign in</button>
-        <p class="mt-5 mb-3 text-muted">&copy; 2020 Pure Savon</p>
+    <form class="form-signin" @submit.prevent="signin">
+      <h1 class="h3 mb-3 font-weight-normal text-center"><i class="fas fa-user-cog"></i>登入</h1>
+      <label for="inputEmail" class="sr-only">Email address</label>
+      <input type="email" id="inputEmail" class="form-control" v-model="user.username" placeholder="Email address" required autofocus>
+      <label for="inputPassword" class="sr-only">Password</label>
+      <input type="password" id="inputPassword" class="form-control" v-model="user.password" placeholder="Password" required>
+      <div class="checkbox mb-3">
+        <label>
+          <input type="checkbox" value="remember-me"> Remember me
+        </label>
+      </div>
+      <button class="btn btn-lg btn-block btn-signin" type="submit">Sign in</button>
+      <p class="mt-5 mb-3 text-muted">&copy; 2020 Pure Savon</p>
     </form>
   </div>
 </template>
@@ -30,10 +30,9 @@ export default {
   },
   methods: {
     signin () {
-      const api = `${process.env.VUE_APP_APIPATH}/admin/signin`
       const vm = this
-      this.$http.post(api, vm.user).then((response) => {
-        console.log(response.data)
+      const api = `${process.env.VUE_APP_APIPATH}/admin/signin`
+      vm.$http.post(api, vm.user).then((response) => {
         if (response.data.success) {
           vm.$router.push('/admin/products')
         }

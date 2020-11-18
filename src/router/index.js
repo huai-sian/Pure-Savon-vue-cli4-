@@ -5,35 +5,31 @@ Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '*',
-    redirect: '/'
-  },
-  {
     path: '/login',
     name: 'Login',
-    component: () => import('../views/login.vue')
+    component: () => import('../views/Login.vue')
   },
   {
     path: '/admin',
     name: 'Dashboard',
-    component: () => import('../views/dashboard.vue'),
+    component: () => import('../views/Dashboard.vue'),
     children: [
       {
         path: 'products',
         name: 'Products',
-        component: () => import('../views/back/products.vue'),
+        component: () => import('../views/back/Products.vue'),
         meta: { requiresAuth: true }
       },
       {
         path: 'orders',
         name: 'Orders',
-        component: () => import('../views/back/orders.vue'),
+        component: () => import('../views/back/Orders.vue'),
         meta: { requiresAuth: true }
       },
       {
         path: 'coupon',
         name: 'Coupon',
-        component: () => import('../views/back/coupon.vue'),
+        component: () => import('../views/back/Coupon.vue'),
         meta: { requiresAuth: true }
       }
     ]
@@ -41,11 +37,11 @@ const routes = [
   {
     path: '/back',
     name: 'Dashboard',
-    component: () => import('../views/dashboard.vue'),
+    component: () => import('../views/Dashboard.vue'),
     children: [
       {
         path: 'customer_orders',
-        name: 'Customerorders',
+        name: 'CustomerOrders',
         component: () => import('../views/back/CustomerOrders.vue')
       },
       {
@@ -61,9 +57,9 @@ const routes = [
     component: () => import('../views/Layout.vue'),
     children: [
       {
-        path: '/',
+        path: '',
         name: 'Home',
-        component: () => import('../views/front/home.vue')
+        component: () => import('../views/front/Home.vue')
       },
       {
         path: 'productlist',
@@ -72,7 +68,7 @@ const routes = [
       },
       {
         path: 'product_detail/:product_id',
-        name: 'ProductDetail',
+        name: 'Product_detail',
         component: () => import('../views/front/Product_detail.vue')
       },
       {
@@ -91,6 +87,10 @@ const routes = [
         component: () => import('../views/front/Checkout.vue')
       }
     ]
+  },
+  {
+    path: '*',
+    redirect: '/'
   }
 ]
 

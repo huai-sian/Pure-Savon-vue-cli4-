@@ -13,7 +13,7 @@
 
 <script>
 export default {
-  name: 'Navbar',
+  name: 'AlertMessage',
   data () {
     return {
       messages: []
@@ -63,5 +63,10 @@ export default {
   top: 56px;
   right: 20px;
   z-index: 1100;
+}
+.message-alert .close{
+  font-size: 100%;
+  line-height: 100%;
+  cursor: pointer;
 }
 </style>

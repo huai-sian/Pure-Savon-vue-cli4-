@@ -1,9 +1,9 @@
 <template>
-    <div>
-        <div class='toTop' @click='scrollTop'>
-            <i class='fas fa-angle-double-up'></i>
-        </div>
+  <div>
+    <div class='toTop' @click='scrollTop'>
+      <i class='fas fa-angle-double-up'></i>
     </div>
+  </div>
 </template>
 <script>
 import $ from 'jquery'

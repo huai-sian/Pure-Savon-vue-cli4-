@@ -1,41 +1,41 @@
 <template>
-    <div>
-        <loading :active.sync="isLoading" >
-        </loading>
-       <div class="text-right">
-           <button class="btn btn-primary mb-3" @click.prevent="openModal(true)">建立新的產品</button>
-       </div>
-       <table class="table mt-4">
-           <thead>
-               <tr>
-                    <th width="110">分類</th>
-                    <th>產品名稱</th>
-                    <th width="130">原價</th>
-                    <th width="130">售價</th>
-                    <th width="130">是否啟用</th>
-                    <th width="140">編輯</th>
-               </tr>
-           </thead>
-           <tbody>
-               <tr v-for="(item,key) in products" :key="key">
-                   <td>{{item.category}}</td>
-                   <td>{{item.title}}</td>
-                   <td>{{item.origin_price | currency}}</td>
-                   <td>{{item.price | currency}}</td>
-                   <td>
-                       <span v-if="item.is_enabled" class="text-success">啟用</span>
-                       <span v-else>未啟用</span>
-                   </td>
-                   <td>
-                       <button class="btn btn-open btn-sm" @click.prevent="openModal(false,item)">編輯</button>
-                       <button class="btn btn-delete btn-sm" @click.prevent="openDeleteModal(item)">刪除</button>
-                   </td>
-               </tr>
-           </tbody>
-       </table>
-       <Pagination :pages='pagination' @switchpage="getProducts"></Pagination>
-       <div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-           <div class="modal-dialog modal-lg" role="document">
+  <div>
+    <loading :active.sync="isLoading" >
+    </loading>
+    <div class="text-right">
+      <button class="btn btn-primary mb-3" @click.prevent="openModal(true)">建立新的產品</button>
+    </div>
+    <table class="table mt-4">
+      <thead>
+        <tr>
+          <th width="110">分類</th>
+          <th>產品名稱</th>
+          <th width="130">原價</th>
+          <th width="130">售價</th>
+          <th width="130">是否啟用</th>
+          <th width="140">編輯</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="(item,key) in products" :key="key">
+          <td>{{ item.category }}</td>
+          <td>{{ item.title }}</td>
+          <td>{{ item.origin_price | currency }}</td>
+          <td>{{ item.price | currency }}</td>
+          <td>
+            <span v-if="item.is_enabled" class="text-success">啟用</span>
+            <span v-else>未啟用</span>
+          </td>
+          <td>
+            <button class="btn btn-open btn-sm" @click.prevent="openModal(false,item)">編輯</button>
+            <button class="btn btn-delete btn-sm" @click.prevent="openDeleteModal(item)">刪除</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <Pagination :pages='pagination' @switchpage="getProducts"></Pagination>
+    <div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content border-0">
           <div class="modal-header bg-dark text-white">
             <h5 class="modal-title" id="exampleModalLabel">
@@ -138,32 +138,31 @@
         </div>
       </div>
     </div>
-    <div class="modal fade" id="delProductModal" tabindex="-1" role="dialog"
-  aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content border-0">
-      <div class="modal-header bg-danger text-white">
-        <h5 class="modal-title" id="exampleModalLabel">
-          <span>刪除產品</span>
-        </h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        是否刪除 <strong class="text-danger">{{ tempProduct.title }}</strong>(刪除後將無法恢復)。
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">取消</button>
-        <button type="button" class="btn btn-danger" @click.prevent='del'>確認刪除</button>
+    <div class="modal fade" id="delProductModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content border-0">
+          <div class="modal-header bg-danger text-white">
+            <h5 class="modal-title" id="exampleModalLabel">
+              <span>刪除產品</span>
+            </h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            是否刪除 <strong class="text-danger">{{ tempProduct.title }}</strong>(刪除後將無法恢復)。
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">取消</button>
+            <button type="button" class="btn btn-danger" @click.prevent='del'>確認刪除</button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</div>
-    </div>
 </template>
 <script>
-import Pagination from '../../components/pagination'
+import Pagination from '@/components/Pagination'
 import $ from 'jquery'
 export default {
   data () {
@@ -171,7 +170,7 @@ export default {
       products: [],
       tempProduct: {},
       isNew: false,
-      sLoading: false,
+      isLoading: false,
       status: {
         fileUploading: ''
       },
@@ -183,15 +182,14 @@ export default {
   },
   methods: {
     getProducts (page = 1) {
-      const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/products?page=${page}`
       const vm = this
+      const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/products?page=${page}`
       vm.isLoading = true
-      this.$http.get(api).then((response) => {
-        console.log(response.data)
+      vm.$http.get(api).then((response) => {
         vm.products = response.data.products
-        vm.isLoading = false
         // vm.products=response.data.products;
         vm.pagination = response.data.pagination
+        vm.isLoading = false
       })
     },
     openModal (isNew, item) {
@@ -199,7 +197,7 @@ export default {
         this.tempProduct = {}
         this.isNew = true
       } else {
-        this.tempProduct = Object.assign({}, item)
+        this.tempProduct = { ...item }
         this.isNew = false
       }
       $('#productModal').modal('show')
@@ -211,22 +209,20 @@ export default {
     del () {
       const vm = this
       const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/product/${vm.tempProduct.id}`
-      this.$http.delete(api).then((response) => {
-        console.log(response.data)
+      vm.$http.delete(api).then((response) => {
         $('#delProductModal').modal('hide')
         vm.getProducts()
       })
     },
     updateProduct () {
-      let api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/product`
       const vm = this
+      let api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/product`
       let httpMethod = 'post'
       if (!vm.isNew) {
         api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/product/${vm.tempProduct.id}`
         httpMethod = 'put'
       }
-      this.$http[httpMethod](api, { data: vm.tempProduct }).then((response) => {
-        console.log(response.data)
+      vm.$http[httpMethod](api, { data: vm.tempProduct }).then((response) => {
         if (response.data.success) {
           $('#productModal').modal('hide')
           vm.getProducts()
@@ -237,14 +233,13 @@ export default {
       })
     },
     uploadFile () {
-      const uploadedfile = this.$refs.files.files[0]
-      console.log(uploadedfile)
       const vm = this
+      const uploadedfile = this.$refs.files.files[0]
       const formData = new FormData()
       formData.append('file-to-upload', uploadedfile)
       const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/upload`
       vm.status.fileUploading = 'loading'
-      this.$http.post(api, formData, {
+      vm.$http.post(api, formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
@@ -252,9 +247,7 @@ export default {
         if (response.data.success) {
           vm.$set(vm.tempProduct, 'imageUrl', response.data.imageUrl)
           vm.status.fileUploading = 'done'
-          console.log(response.data)
         } else {
-          console.log(response.data)
           vm.status.fileUploading = 'fail'
           this.$bus.$emit('message:push', response.data.message, 'danger')
         }

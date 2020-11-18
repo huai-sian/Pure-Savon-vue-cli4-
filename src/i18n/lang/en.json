@@ -13,9 +13,9 @@
     "slogan1": "Pure",
     "slogan2": "Nature",
     "slogan3": "Unique",
-    "detail1": "To Simple",
-    "detail2": "To Original Nature",
-    "detail3": "For Your Aroma",
+    "detail1": "To Simple. Never Change.",
+    "detail2": "To Original Nature. Taste Fragrance.",
+    "detail3": "For Your Aroma. Treat Skin Better.",
     "goshopping": "Go shopping"
   },
   "Series": {
@@ -26,7 +26,7 @@
   },
   "Home": {
     "feature1": "Sustainability",
-    "feature2": "100% From Nature",
+    "feature2": "100% Natural",
     "feature3": "Fragrance Free",
     "topsale1_title": "Milled Calendula",
     "topsale2_title": "Lavandin Provence",
@@ -43,16 +43,21 @@
     "series": "Series",
     "howtouse_title": "How To Use",
     "warning_title": "Precaution",
-    "howtouse": "Add water to your hands to rub and foam for body cleaning.Please keep away from high temperature when storing, and keep it in a cool place indoors to avoid deterioration",
-    "warning": "Since the soap is made from natural materials,the color is slightly different during the saponification process and might form a layer of white substance, which are normal. If you feel unwell, stop using it and seek medical attention immediately",
+    "howtouse": "Add water to your hands to rub and foam for body cleaning.Please keep away from high temperature when storing, and keep it in a cool place indoors to avoid deterioration.",
+    "warning": "Since the soap is made from natural materials,the color is slightly different during the saponification process and might form a layer of white substance, which are normal. If you feel unwell, stop using it and seek medical attention immediately.",
     "notice_title": "Notice",
     "noticesub1": "Returns & Exchange",
-    "noticesub1_con": "If an item is still in its original condition:intact protective seal, we accept returns and exchanges.",
+    "noticesub1_con": "If an item is still in its original condition:intact protective seal, we accept returns and exchanges. If you're receiving a refund after we have received your item, it may take an additional three to five business days to process your return fully and issue your refund.",
     "noticesub2": "Refunds",
-    "noticesub2_con": "Any refund will be issued to the account that you would be asked to provide in Email. This typically takes 10 working days.",
+    "noticesub2_con": "Any refund will be issued to the account that you would be asked to provide in Email. You can exchange an item through Your Orders if your return item wasn't purchased with a promotion, the return item isn't subject to a restocking fee. Once we issue your refund, it may take additional time for your funds to be made available in your account by your financial institution.",
     "noticesub3": "Deliveries",
-    "noticesub3_con": "All of orders are delivery cost free. Unfortunately, we are not providing international delivery.",
+    "noticesub3_con": "All of orders are delivery cost free. Unfortunately, we are not providing international delivery. We offer guaranteed delivery on certain fast delivery speeds and select products. Tracking information isn't available from carriers online for Release-Date Delivery. You will receive the messages when your order item is arrived.",
     "related": "Related Products"
+  },
+  "Progress_step": {
+    "step1": "01 Check Order",
+    "step2": "02 Billing Info",
+    "step3": "03 Accomplish"
   },
   "Checkorder": {
     "step_title": "Order list",

@@ -17,6 +17,8 @@ import currencyfilter from './filters/currency'
 import dateString from './filters/date'
 import Floor from './filters/floor'
 import focus from './filters/V-focus'
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 
 Vue.use(VueAxios, axios)
 Vue.component('Loading', Loading)
@@ -27,6 +29,7 @@ Vue.filter('currency', currencyfilter)
 Vue.filter('date', dateString)
 Vue.filter('floor', Floor)
 Vue.directive('focus', focus)
+AOS.init()
 
 Vue.config.productionTip = false
 axios.defaults.withCredentials = true
