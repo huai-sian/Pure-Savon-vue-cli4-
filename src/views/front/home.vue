@@ -215,7 +215,7 @@
   </div>
 </template>
 <script>
-import $ from 'jquery'
+/* global $ */
 export default {
   name: 'Home',
   data () {

@@ -96,7 +96,7 @@
 </template>
 <script>
 import Bannerimg from '@/components/Bannerimg'
-import $ from 'jquery'
+/* global $ */
 export default {
   name: 'Product_detail',
   components: {

@@ -104,7 +104,7 @@
 </template>
 <script>
 import Pagination from '@/components/Pagination'
-import $ from 'jquery'
+/* global $ */
 export default {
   data () {
     return {

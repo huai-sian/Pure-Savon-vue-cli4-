@@ -63,7 +63,7 @@
   </div>
 </template>
 <script>
-import $ from 'jquery'
+/* global $ */
 export default {
   name: 'Navigation_bar',
   data () {

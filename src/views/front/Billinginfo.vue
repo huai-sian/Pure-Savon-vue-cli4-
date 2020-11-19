@@ -144,7 +144,7 @@
   </div>
 </template>
 <script>
-import $ from 'jquery'
+/* global $ */
 import Bannerimg from '@/components/Bannerimg'
 import ProgressStep from '@/components/ProgressStep'
 export default {

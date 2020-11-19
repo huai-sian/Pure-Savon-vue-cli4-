@@ -89,7 +89,7 @@
 <script>
 import Bannerimg from '@/components/Bannerimg'
 import ProgressStep from '@/components/ProgressStep'
-import $ from 'jquery'
+/* global $ */
 export default {
   name: 'CheckOrders',
   components: {
