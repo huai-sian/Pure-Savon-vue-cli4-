@@ -10,7 +10,7 @@
       <div class="row listRow">
         <div class='col-md-6 col-12'>
           <ul class='order'>
-            <p>{{ $t("Checkout.orderDate") }} - {{ order.create_at | date }}</p>
+            <li><p>{{ $t("Checkout.orderDate") }} - {{ order.create_at | date }}</p></li>
             <li class="orderList" v-for='item in order.products' :key='item.id'>
               <div class="row">
                 <div class="col-6 p-0">
@@ -89,9 +89,9 @@
   </div>
 </template>
 <script>
+/* global $ */
 import Bannerimg from '@/components/Bannerimg'
 import ProgressStep from '@/components/ProgressStep'
-/* global $ */
 export default {
   name: 'Checkout',
   components: {

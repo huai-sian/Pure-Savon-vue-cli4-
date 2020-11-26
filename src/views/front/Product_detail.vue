@@ -95,8 +95,8 @@
   </div>
 </template>
 <script>
-import Bannerimg from '@/components/Bannerimg'
 /* global $ */
+import Bannerimg from '@/components/Bannerimg'
 export default {
   name: 'Product_detail',
   components: {
@@ -138,7 +138,7 @@ export default {
     addToCart (product, qty = 1) {
       const vm = this
       let productIndex = -1
-      this.getCart()
+      vm.getCart()
       if (vm.cart.length > 0) {
         vm.cart.forEach((item, index) => {
           if (item.id === product.id) {

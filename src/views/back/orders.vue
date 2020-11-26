@@ -93,8 +93,8 @@
   </div>
 </template>
 <script>
-import Pagination from '@/components/Pagination'
 /* global $ */
+import Pagination from '@/components/Pagination'
 export default {
   data () {
     return {

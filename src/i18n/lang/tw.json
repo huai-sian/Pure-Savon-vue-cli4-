@@ -16,7 +16,8 @@
     "detail1": "從未改變的初衷，獻給渴望簡單的你",
     "detail2": "一口芳香氣息，致大地最原始的氣息",
     "detail3": "與肌膚調和，只屬於你的專有香味",
-    "goshopping": "去逛逛"
+    "goshopping": "去逛逛",
+    "subscribe": "訂閱電子報，立刻享八折優惠"
   },
   "Series": {
     "series1": "草本系列",
@@ -62,7 +63,8 @@
   "Checkorder": {
     "step_title": "購買清單確認",
     "summary": "總計",
-    "next_btn": "下一步",
+    "next_btn": "確認購買",
+    "next": "填寫資料",
     "back_btn": "繼續購物",
     "warning_title": "注意事項",
     "notice_title": "訂購須知",

@@ -4,7 +4,7 @@
       <Navbar/>
       <Alert/>
       <transition mode='out-in' name='fade'>
-        <router-view :key="$router.fullPath"></router-view>
+        <router-view :key="$router.fullPath" class='content'></router-view>
       </transition>
       <Totop/>
       <Footer/>
@@ -29,10 +29,13 @@ export default {
 <style lang="scss" scoped>
 .layout{
     min-width:320px;
-    min-height: 100%;
+    margin:0;
     display: grid;
     grid-template-rows: auto 1fr auto;
     overflow-x: hidden;
+}
+.layout .content{
+  min-height: 100%;
 }
 .input{
     outline:0;

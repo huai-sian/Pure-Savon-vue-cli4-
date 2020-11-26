@@ -6,31 +6,34 @@
             <div class='carousel-item active'>
               <img src='../../assets/images/thanos-pal-v_Cc1qxKuBsmin.jpg' alt="">
               <div class='slide-box'></div>
-              <h1>{{ $t("Carousel.slogan1") }}·</h1>
+              <h1>{{ $t("Carousel.slogan1") }}·Pure Savon</h1>
               <h3>{{ $t("Carousel.detail1") }}
               </h3>
+              <p>{{ $t("Carousel.subscribe") }}</p>
               <button class="carousel-btn" @click.prevent='$router.push("/productlist")'>{{ $t("Carousel.goshopping") }}</button>
             </div>
             <div class='carousel-item'>
               <img src='../../assets/images/duncan-kidd-uwFjCwhXMhE-compress.jpg' alt="">
               <div class='slide-box'></div>
-              <h1>{{ $t("Carousel.slogan2") }}·</h1>
+              <h1>{{ $t("Carousel.slogan2") }}·Pure Savon</h1>
               <h3>{{ $t("Carousel.detail2") }}
               </h3>
+              <p>{{ $t("Carousel.subscribe") }}</p>
               <button class="carousel-btn" @click.prevent='$router.push("/productlist")'>{{ $t("Carousel.goshopping") }}</button>
             </div>
             <div class='carousel-item'>
               <img src='../../assets/images/thanos-pal-8PWY6aTanhQ-unsplash.jpg' alt="">
               <div class='slide-box'></div>
-              <h1>{{ $t("Carousel.slogan3") }}·</h1>
+              <h1>{{ $t("Carousel.slogan3") }}·Pure Savon</h1>
               <h3>{{ $t("Carousel.detail3") }}
               </h3>
+              <p>{{ $t("Carousel.subscribe") }}</p>
               <button class="carousel-btn" @click.prevent='$router.push("/productlist")'>{{ $t("Carousel.goshopping") }}</button>
             </div>
           </div>
         </div>
         <div class='scrolldown'>
-          <a href="#series" @click.prevent="scrollIntoView('#series')"><span></span></a>
+          <a href="#series" @click.prevent="scrollIntoView('#series')"><i class="fas fa-angle-double-down"></i></a>
         </div>
     </header>
     <section class='allseries' id='series'>
@@ -70,10 +73,10 @@
     </section>
     <section class='container features'>
       <div class="story row no-gutters">
-        <div class="col-8">
+        <div class="col-7">
           <div class="bg-cover features_img"></div>
         </div>
-        <div class="col-4 feature_txt">
+        <div class="col-5 feature_txt">
           <div class="feature_slogan">
             <h4 class='mb-4'>{{ $t("Home.feature1") }}</h4>
             <h4 class='mb-4'>{{ $t("Home.feature2") }}</h4>

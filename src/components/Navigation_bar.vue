@@ -140,7 +140,6 @@ export default {
       localStorage.setItem('wish', JSON.stringify(this.wish))
       // this.$bus.$emit('productFavor:get');
       this.getWish()
-      console.log(this.wish)
     }
   },
   computed: {

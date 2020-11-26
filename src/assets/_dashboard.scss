@@ -35,17 +35,19 @@ body {
 .sidebar .nav-link {
     font-weight: 500;
     color: #333;
-}
-.sidebar .nav-link .feather {
-  margin-right: 4px;
-  color: #999;
-}
-.sidebar .nav-link.active {
-  color: #85929E;
-}
-.sidebar .nav-link:hover .feather,
-.sidebar .nav-link.active .feather {
-    color: inherit;
+    &:hover .feather{
+      color: inherit;
+    }
+    &.active{
+      color: $secondary_color;
+      .feather {
+        color: inherit;
+      }
+    }
+    .feather {
+      margin-right: 4px;
+      color: #999;
+    }
 }
 .sidebar-heading {
   font-size: .75rem;
@@ -75,10 +77,10 @@ body {
 }
 .form-control-dark {
   color: #4D5656;
-  background-color:#fff;
-  border-color: #fff;
-}
-.form-control-dark:focus {
-  border-color: transparent;
-  box-shadow: 0 0 0 3px rgba(255, 255, 255, .25);
+  background-color:$white_txt;
+  border-color: $white_txt;
+  &:focus{
+    border-color: transparent;
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, .25);
+  }
 }

@@ -1,7 +1,8 @@
 @import "~bootstrap/scss/functions";
 @import "./helpers/_variables.scss";
-// @import "./helpers/grid.scss";
 @import "~bootstrap/scss/bootstrap";
+@import "./helpers/utilities";
+@import "./helpers/mixin";
 @import "./dashboard.scss";
 @import './helpers/navigationbar.scss';
 @import './helpers/home.scss';

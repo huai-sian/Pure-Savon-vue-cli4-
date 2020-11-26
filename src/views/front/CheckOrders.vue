@@ -50,19 +50,20 @@
           </ul>
           <div class='gocheck'>
             <button class='btn-back' @click.prevent="$router.push('/productlist')"><i>{{ $t("Checkorder.back_btn") }}</i></button>
-            <button class='btn-check' :class="{'disabled':clicked===true}" @click.prevent='confirmCart'><i></i>{{ $t("Checkorder.next_btn") }}</button>
+            <button class='btn-check' v-if='clicked===true' @click.prevent='goNextPage'><i></i>{{ $t("Checkorder.next") }}</button>
+            <button class='btn-check' v-else @click.prevent='confirmCart'><i></i>{{ $t("Checkorder.next_btn") }}</button>
           </div>
           <div class="declare">
             <div class='declare_left'>{{ $t("Checkorder.warning_title") }}</div>
-              <h5><i class="fas fa-exclamation-circle"></i>{{ $t("Checkorder.notice_title") }}</h5>
-                <ul>
-                  <li>{{ $t("Checkorder.notice1") }}</li>
-                  <li>{{ $t("Checkorder.notice2") }}</li>
-                  <li>{{ $t("Checkorder.notice3") }}</li>
-                  <li>{{ $t("Checkorder.notice4") }}</li>
-                  <li>{{ $t("Checkorder.notice5") }}</li>
-                  <li>{{ $t("Checkorder.notice6") }}</li>
-                </ul>
+            <h5><i class="fas fa-exclamation-circle"></i>{{ $t("Checkorder.notice_title") }}</h5>
+            <ul>
+              <li>{{ $t("Checkorder.notice1") }}</li>
+              <li>{{ $t("Checkorder.notice2") }}</li>
+              <li>{{ $t("Checkorder.notice3") }}</li>
+              <li>{{ $t("Checkorder.notice4") }}</li>
+              <li>{{ $t("Checkorder.notice5") }}</li>
+              <li>{{ $t("Checkorder.notice6") }}</li>
+            </ul>
           </div>
       </div>
       <div class="modal fade" id="leaveWarn" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -87,9 +88,9 @@
   </div>
 </template>
 <script>
+/* global $ */
 import Bannerimg from '@/components/Bannerimg'
 import ProgressStep from '@/components/ProgressStep'
-/* global $ */
 export default {
   name: 'CheckOrders',
   components: {
@@ -104,7 +105,8 @@ export default {
       total: 0,
       goNext: false,
       clicked: false,
-      cartitemqty: 0
+      cartitemqty: 0,
+      isLoading: false
     }
   },
   methods: {
@@ -163,20 +165,22 @@ export default {
       const vm = this
       vm.clicked = true
       const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/cart`
+      vm.cart = JSON.parse(localStorage.getItem('cart')) || []
       vm.cart.forEach((item) => {
         const cartinfo = {
           product_id: item.id,
           qty: item.qty
         }
         vm.$http.post(api, { data: cartinfo }).then((response) => {
-          if (response.data.success) {
-            vm.goNext = true
-            vm.$router.push('/billinginfo')
-          } else {
+          if (!response.data.success) {
             vm.$bus.$emit('message:push', response.data.message, 'danger')
           }
         })
       })
+    },
+    goNextPage () {
+      this.goNext = true
+      this.$router.push('billinginfo')
     }
   },
   beforeRouteLeave (to, from, next) {

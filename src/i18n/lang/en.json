@@ -16,7 +16,8 @@
     "detail1": "To Simple. Never Change.",
     "detail2": "To Original Nature. Taste Fragrance.",
     "detail3": "For Your Aroma. Treat Skin Better.",
-    "goshopping": "Go shopping"
+    "goshopping": "Go shopping",
+    "subscribe": "Subscribe Now! Get 20% Off"
   },
   "Series": {
     "series1": "Herbs",
@@ -62,7 +63,8 @@
   "Checkorder": {
     "step_title": "Order list",
     "summary": "Total",
-    "next_btn": "Next",
+    "next_btn": "Confirm",
+    "next": "Next",
     "back_btn": "Back to Store",
     "warning_title": "Precaution",
     "notice_title": "Notices",
