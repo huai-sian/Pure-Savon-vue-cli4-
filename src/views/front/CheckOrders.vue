@@ -169,14 +169,13 @@ export default {
       vm.cart.forEach((item) => {
         const cartinfo = {
           product_id: item.id,
-          qty: item.qty
+          qty: item.qty,
+          price: item.total
         }
-        console.log(cartinfo)
         vm.$http.post(api, { data: cartinfo }).then((response) => {
           if (!response.data.success) {
             vm.$bus.$emit('message:push', response.data.message, 'danger')
           }
-          console.log('add')
         })
       })
     },

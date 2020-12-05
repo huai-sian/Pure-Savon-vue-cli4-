@@ -234,7 +234,7 @@ export default {
     },
     uploadFile () {
       const vm = this
-      const uploadedfile = this.$refs.files.files[0]
+      const uploadedfile = vm.$refs.files.files[0]
       const formData = new FormData()
       formData.append('file-to-upload', uploadedfile)
       const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/upload`
@@ -249,7 +249,7 @@ export default {
           vm.status.fileUploading = 'done'
         } else {
           vm.status.fileUploading = 'fail'
-          this.$bus.$emit('message:push', response.data.message, 'danger')
+          vm.$bus.$emit('message:push', response.data.message, 'danger')
         }
       })
     }
