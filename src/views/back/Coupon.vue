@@ -95,7 +95,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">取消</button>
-            <button type="button" class="btn btn-danger" @click.prevent='del'>確認刪除</button>
+            <button type="button" class="btn btn-danger" @click.prevent="del">確認刪除</button>
           </div>
         </div>
       </div>

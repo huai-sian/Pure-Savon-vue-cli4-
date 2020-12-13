@@ -1,5 +1,5 @@
 <template>
-  <div class='product_detail'>
+  <div class="product_detail">
     <loading :active.sync="isLoading" >
     </loading>
     <Bannerimg>
@@ -12,80 +12,80 @@
         </ol>
       </nav>
     </Bannerimg>
-    <div class='container'>
-      <div class='row product_info'>
-        <div class='col-lg-6 col-md-7'>
-          <div class='product_pic'>
-            <img :src="product.imageUrl" alt="">
+    <div class="container">
+      <div class="row product_info">
+        <div class="col-lg-6 col-md-7">
+          <div class="product_pic">
+            <img :src="product.imageUrl" :alt="product.title">
           </div>
         </div>
-        <div class='col-lg-6 col-md-5'>
-          <ul class='product_meta'>
+        <div class="col-lg-6 col-md-5">
+          <ul class="product_meta">
             <li>
               <h3>{{ product.title }}</h3>
             </li>
             <li>
-              <p class='origin_pricesolo' v-if="!product.price">NT{{ product.origin_price | currency }}</p>
-              <del class='origin_price' v-if="product.price">NT{{ product.origin_price|currency }}</del>
+              <p class="origin_pricesolo" v-if="!product.price">NT{{ product.origin_price | currency }}</p>
+              <del class="origin_price" v-if="product.price">NT{{ product.origin_price|currency }}</del>
             </li>
             <li>
-              <p class="salesprice" v-if='product.price'>NT{{ product.price | currency }}</p>
+              <p class="salesprice" v-if="product.price">NT{{ product.price | currency }}</p>
             </li>
             <li>
-              <div class='numControl'>
-                <button type="button" class=" btn-minus" data-quantity="minus" data-field="quantity" @click.prevent="changeNum(-1)">
+              <div class="numControl">
+                <button type="button" class="btn-minus" data-quantity="minus" data-field="quantity" @click.prevent="changeNum(-1)">
                   <i class="fa fa-minus" aria-hidden="true"></i>
                 </button>
-                <input class="amount" type="number" max="10" min='1' v-model="productnum" @change='changeAmount(productnum)'>
-                <button type="button" class=" btn-plus" data-quantity="plus" data-field="quantity" @click.prevent="changeNum(1)">
+                <input class="amount" type="number" max="10" min="1" v-model="productnum" @change="changeAmount(productnum)">
+                <button type="button" class="btn-plus" data-quantity="plus" data-field="quantity" @click.prevent="changeNum(1)">
                   <i class="fa fa-plus" aria-hidden="true"></i>
                 </button>
               </div>
-              <button class='btn-cart' @click.prevent='addToCart(product,productnum)'><i class='fas fa-shopping-cart'></i>加入購物車</button>
+              <button class="btn-cart" @click.prevent="addToCart(product,productnum)"><i class="fas fa-shopping-cart"></i>加入購物車</button>
             </li>
             <li>
-              <p class='product_des'>{{ product.description }}</p>
+              <p class="product_des">{{ product.description }}</p>
             </li>
             <li>
-              <p class='product_con'>{{ product.content }}</p>
+              <p class="product_con">{{ product.content }}</p>
             </li>
           </ul>
         </div>
       </div>
-      <div class='product_intro'>
-        <h4 class='mb-4 h4'>{{ $t("Product_detail.howtouse_title") }}</h4>
+      <div class="product_intro">
+        <h4 class="mb-4 h4">{{ $t("Product_detail.howtouse_title") }}</h4>
         <p>{{ $t("Product_detail.howtouse") }}</p>
-        <h4 class='mb-4 h4'>{{ $t("Product_detail.warning_title") }}</h4>
+        <h4 class="mb-4 h4">{{ $t("Product_detail.warning_title") }}</h4>
         <p>{{ $t("Product_detail.warning") }}</p>
-        <h4 class='mb-4 h4'>{{ $t("Product_detail.notice_title") }}</h4>
+        <h4 class="mb-4 h4">{{ $t("Product_detail.notice_title") }}</h4>
         <div class="notice">
-          <div class='return'>
-            <h4 class='notice_title'>{{ $t("Product_detail.noticesub1") }}</h4>
-            <p class='notice_txt'>{{ $t("Product_detail.noticesub1_con") }}</p>
+          <div class="return">
+            <h4 class="notice_title">{{ $t("Product_detail.noticesub1") }}</h4>
+            <p class="notice_txt">{{ $t("Product_detail.noticesub1_con") }}</p>
           </div>
-          <div class='aware'>
-            <h4 class='notice_title'>{{ $t("Product_detail.noticesub2") }}</h4>
-            <p class='notice_txt'>{{ $t("Product_detail.noticesub2_con") }}</p>
+          <div class="aware">
+            <h4 class="notice_title">{{ $t("Product_detail.noticesub2") }}</h4>
+            <p class="notice_txt">{{ $t("Product_detail.noticesub2_con") }}</p>
           </div>
-          <div class='ship'>
-            <h4 class='notice_title'>{{ $t("Product_detail.noticesub3") }}</h4>
-            <p class='notice_txt'>{{ $t("Product_detail.noticesub3_con") }}</p>
+          <div class="ship">
+            <h4 class="notice_title">{{ $t("Product_detail.noticesub3") }}</h4>
+            <p class="notice_txt">{{ $t("Product_detail.noticesub3_con") }}</p>
           </div>
         </div>
       </div>
-      <div class='related'>
+      <div class="related">
         <h3>{{ $t("Product_detail.related") }}</h3>
         <hr>
         <div class="related_content row">
-          <div class='col-md-4 col-sm-6 col-12 d-flex justify-content-start align-item-center'  v-for='item in filterSimilars' :key='item.id'>
-            <div class='productCard' @click.prevent='goRelated(item.id)'>
-              <div class='top'>
-                <img :src="item.imageUrl" alt="">
-                <div class='tag'>特價中</div>
+          <div class="col-md-4 col-sm-6 col-12 d-flex justify-content-start align-item-center"  v-for="item in filterSimilars" :key="item.id">
+            <div class="productCard" @click.prevent="goRelated(item.id)">
+              <div class="top">
+                <img :src="item.imageUrl" :alt="item.title">
+                <div class="tag">特價中</div>
               </div>
-              <div class='bottom'>
+              <div class="bottom">
                 <h3>{{ item.title }}</h3>
-                <div class='price'>NT${{ item.origin_price }}</div>
+                <div class="price">NT${{ item.origin_price }}</div>
               </div>
             </div>
           </div>

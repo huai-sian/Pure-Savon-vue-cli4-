@@ -27,8 +27,8 @@
           </td>
           <td class="text-right">{{ item.total | currency }}</td>
           <td>
-            <span v-if="item.is_paid" class='ispaid'>已付款</span>
-            <span v-else class='unpaid'>未付款</span>
+            <span v-if="item.is_paid" class="ispaid">已付款</span>
+            <span v-else class="unpaid">未付款</span>
           </td>
           <td>
             <button class="btn btn-open btn-sm" @click.prevent="openModal(item)">查看</button>
@@ -36,27 +36,27 @@
         </tr>
       </tbody>
     </table>
-    <Pagination :pages='pagination' @switchpage="getOrders"></Pagination>
+    <Pagination :pages="pagination" @switchpage="getOrders"></Pagination>
     <div class="modal fade" id="openOrModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content border-0">
           <div class="modal-header text-white">
             <h5 class="modal-title" id="exampleModalLabel">
-              <span class='text-light'>訂單資訊</span>
+              <span class="text-light">訂單資訊</span>
             </h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
-            <div class='my-2'>訂購人姓名：{{ tempOrder.user.name }}</div>
-            <div class='my-2'>訂單編號：{{ tempOrder.id }}</div>
-            <div class='my-2'>訂購日期：{{ tempOrder.create_at }}</div>
-            <div class='my-2' v-if="tempOrder.is_paid">付款狀態：已付款</div>
-            <div class='my-2' v-else>付款狀態：未付款</div>
-            <div class='my-2'>Email：{{ tempOrder.user.email }}</div>
-            <div class='my-2'>手機號碼：{{ tempOrder.user.tel }}</div>
-            <div class='my-2'>收件地址：{{ tempOrder.user.address }}</div>
+            <div class="my-2">訂購人姓名：{{ tempOrder.user.name }}</div>
+            <div class="my-2">訂單編號：{{ tempOrder.id }}</div>
+            <div class="my-2">訂購日期：{{ tempOrder.create_at }}</div>
+            <div class="my-2" v-if="tempOrder.is_paid">付款狀態：已付款</div>
+            <div class="my-2" v-else>付款狀態：未付款</div>
+            <div class="my-2">Email：{{ tempOrder.user.email }}</div>
+            <div class="my-2">手機號碼：{{ tempOrder.user.tel }}</div>
+            <div class="my-2">收件地址：{{ tempOrder.user.address }}</div>
             <table class="table mt-4">
               <thead>
                 <tr>
@@ -78,7 +78,7 @@
                   <td v-else>未使用</td>
                 </tr>
                 <tr>
-                  <td colspan='5'>應付金額</td>
+                  <td colspan="5">應付金額</td>
                   <td>NT{{ tempOrder.total | currency }}</td>
                 </tr>
               </tbody>

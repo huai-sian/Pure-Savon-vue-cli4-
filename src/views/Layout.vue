@@ -1,10 +1,10 @@
 <template>
   <div>
-    <div class='container-fluid layout px-0'>
+    <div class="container-fluid layout px-0">
       <Navbar/>
       <Alert/>
-      <transition mode='out-in' name='fade'>
-        <router-view :key="$router.fullPath" class='content'></router-view>
+      <transition mode="out-in" name="fade">
+        <router-view :key="$router.fullPath" class="content"></router-view>
       </transition>
       <Totop/>
       <Footer/>

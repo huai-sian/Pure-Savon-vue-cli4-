@@ -33,7 +33,7 @@
         </tr>
       </tbody>
     </table>
-    <Pagination :pages='pagination' @switchpage="getProducts"></Pagination>
+    <Pagination :pages="pagination" @switchpage="getProducts"></Pagination>
     <div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content border-0">
@@ -63,7 +63,7 @@
                   <input type="file" id="customFile" class="form-control"
                     ref="files" @change="uploadFile">
                 </div>
-                <img class="img-fluid" :src="tempProduct.imageUrl" alt="">
+                <img class="img-fluid" :src="tempProduct.imageUrl">
               </div>
               <div class="col-sm-8">
                 <div class="form-group">
@@ -87,7 +87,6 @@
                       placeholder="請輸入單位">
                   </div>
                 </div>
-
                 <div class="form-row">
                   <div class="form-group col-md-6">
                   <label for="origin_price">原價</label>
@@ -103,7 +102,6 @@
                   </div>
                 </div>
                 <hr>
-
                 <div class="form-group">
                   <label for="description">產品描述</label>
                   <textarea type="text" class="form-control" id="description"
@@ -187,7 +185,6 @@ export default {
       vm.isLoading = true
       vm.$http.get(api).then((response) => {
         vm.products = response.data.products
-        // vm.products=response.data.products;
         vm.pagination = response.data.pagination
         vm.isLoading = false
       })

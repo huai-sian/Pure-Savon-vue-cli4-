@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class='container-fluid bannerimg'>
+    <div class="container-fluid bannerimg">
       <slot></slot>
     </div>
   </div>

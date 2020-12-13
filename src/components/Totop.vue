@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div class='toTop' @click='scrollTop'>
-      <i class='fas fa-angle-double-up'></i>
+    <div class="toTop" @click="scrollTop">
+      <i class="fas fa-angle-double-up"></i>
     </div>
   </div>
 </template>

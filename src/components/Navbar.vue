@@ -1,10 +1,10 @@
 <template>
   <div>
     <nav class="navbar navbar-dark fixed-top  flex-md-nowrap p-0 shadow">
-      <router-link class="navbar-brand col-sm-3 col-md-2 mr-0" href="#" to='/'>Pure Savon</router-link>
+      <router-link class="navbar-brand col-sm-3 col-md-2 mr-0" href="#" to="/">Pure Savon</router-link>
       <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">
-          <a class="nav-link" href="#" @click.prevent='logout'><i class="fas fa-sign-out-alt"></i>登出</a>
+          <a class="nav-link" href="#" @click.prevent="logout"><i class="fas fa-sign-out-alt"></i>登出</a>
         </li>
       </ul>
     </nav>

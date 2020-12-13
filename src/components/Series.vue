@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div class='series'>
+    <div class="series">
       <ul>
-        <li v-for="(item,key) in serieslist" :key='key' :class="{'active':item===currentChoice}" @click.prevent="changeChoice(item)">{{ item }}</li>
+        <li v-for="(item,key) in serieslist" :key="key" :class="{'active':item===currentChoice}" @click.prevent="changeChoice(item)">{{ item }}</li>
       </ul>
     </div>
   </div>

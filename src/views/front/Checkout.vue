@@ -3,13 +3,13 @@
     <loading :active.sync="isLoading" >
     </loading>
     <Bannerimg>
-      <ProgressStep :current='step'></ProgressStep>
+      <ProgressStep :current="step"></ProgressStep>
     </Bannerimg>
-    <div class='container checkOut'>
+    <div class="container checkOut">
       <h3>{{ $t("Checkout.orderInfo") }}</h3>
       <div class="row listRow">
-        <div class='col-md-6 col-12'>
-          <ul class='order'>
+        <div class="col-md-6 col-12">
+          <ul class="order">
             <li><p>{{ $t("Checkout.orderDate") }} - {{ order.create_at | date }}</p></li>
             <li class="orderList" v-for='item in order.products' :key='item.id'>
               <div class="row">
@@ -20,21 +20,21 @@
                   <div class="pro-qty">x{{ item.qty }}</div>
                 </div>
                 <div class="col-4 p-0">
-                  <div class='pro-price'>NT{{ item.final_total / item.qty | floor | currency }}</div>
+                  <div class="pro-price">NT{{ item.final_total / item.qty | floor | currency }}</div>
                 </div>
               </div>
             </li>
-            <li class='pt-2 summaryBlock'>
-              <div class='row summaryList'>
-                <div class='col-8 p-0 summary'>{{ $t("Checkout.summary") }}</div>
-                <div class='col-4 p-0 summary'>NT{{ order.total | currency }}</div>
+            <li class="pt-2 summaryBlock">
+              <div class="row summaryList">
+                <div class="col-8 p-0 summary">{{ $t("Checkout.summary") }}</div>
+                <div class="col-4 p-0 summary">NT{{ order.total | currency }}</div>
               </div>
             </li>
           </ul>
         </div>
         <div class="col-md-6 col-12">
-          <div class='order_info'>
-            <table class='table'>
+          <div class="order_info">
+            <table class="table">
               <tr>
                 <td class="title">{{ $t("Checkout.name") }}</td>
                 <td>{{ order.user.name }}</td>
@@ -58,12 +58,12 @@
               </tr>
               <tr>
                 <td class="title">{{ $t("Checkout.paid_condition") }}</td>
-                <td v-if='!order.is_paid' class='incomplete'>{{ $t("Checkout.not_paid") }}</td>
-                <td v-else class='complete'>{{ $t("Checkout.paid") }}</td>
+                <td v-if='!order.is_paid' class="incomplete">{{ $t("Checkout.not_paid") }}</td>
+                <td v-else class="complete">{{ $t("Checkout.paid") }}</td>
               </tr>
             </table>
-            <div class='endpay'>
-              <button v-if='!order.is_paid' @click.prevent='completePay'>{{ $t("Checkout.go_paid") }}</button>
+            <div class="endpay">
+              <button v-if="!order.is_paid" @click.prevent="completePay">{{ $t("Checkout.go_paid") }}</button>
               <button v-else @click.prevent="$router.push('/productlist')">{{ $t("Checkout.backtoshop") }}</button>
             </div>
           </div>

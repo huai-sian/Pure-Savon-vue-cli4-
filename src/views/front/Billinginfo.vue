@@ -1,52 +1,52 @@
 <template>
-  <div class='billinginfo'>
+  <div class="billinginfo">
     <loading :active.sync="isLoading" >
     </loading>
     <Bannerimg>
-      <ProgressStep :current='step'></ProgressStep>
+      <ProgressStep :current="step"></ProgressStep>
     </Bannerimg>
     <div class="container">
       <h3>{{ $t("Billinginfo.step_title") }}</h3>
-        <div class='row mb-4'>
+        <div class="row mb-4">
           <div class="col-12 col-md-5">
-            <ul class='order'>
-              <li v-for='item in carts.carts' :key='item.id' class="pb-3 orderList">
-                <div class='row'>
-                  <div class='col-3 p-0'>
-                    <div class='pro-img'>
-                      <img :src="item.product.imageUrl" alt="">
+            <ul class="order">
+              <li v-for="item in carts.carts" :key="item.id" class="pb-3 orderList">
+                <div class="row">
+                  <div class="col-3 p-0">
+                    <div class="pro-img">
+                      <img :src="item.product.imageUrl" :alt="item.product.title">
                     </div>
                   </div>
-                  <div class='col-7 p-0'>
-                    <div class='row m-0 w-100'>
-                      <div class='col-12 col-md-8'>
-                        <div class='pro-name'>{{ item.product.title }}</div>
+                  <div class="col-7 p-0">
+                    <div class="row m-0 w-100">
+                      <div class="col-12 col-md-8">
+                        <div class="pro-name">{{ item.product.title }}</div>
                       </div>
-                      <div class='col-12 col-md-4'>
-                        <div class='pro_qty'>x{{ item.qty }}</div>
+                      <div class="col-12 col-md-4">
+                        <div class="pro_qty">x{{ item.qty }}</div>
                       </div>
                     </div>
                   </div>
-                  <div class='col-2 p-0'>
-                    <div class='pro_price' v-if='!item.price'>NT{{ item.product.origin_price|currency }}</div>
-                    <div class='pro_price' v-else>NT{{ item.product.price|currency }}</div>
+                  <div class="col-2 p-0">
+                    <div class="pro_price" v-if="!item.price">NT{{ item.product.origin_price|currency }}</div>
+                    <div class="pro_price" v-else>NT{{ item.product.price|currency }}</div>
                   </div>
                 </div>
               </li>
-              <li class='pt-4'>
-                <div class='row summary'>
-                  <div class='col-6 p-0'>共{{ cartLength }}項</div>
-                  <div class='col-2 p-0'>{{ $t("Billinginfo.summary") }}</div>
-                  <div class='col-3 p-0'>NT{{ carts.final_total | floor |currency }}</div>
-                  <div class='col-1 p-0'></div>
+              <li class="pt-4">
+                <div class="row summary">
+                  <div class="col-6 p-0">共{{ cartLength }}項</div>
+                  <div class="col-2 p-0">{{ $t("Billinginfo.summary") }}</div>
+                  <div class="col-3 p-0">NT{{ carts.final_total | floor |currency }}</div>
+                  <div class="col-1 p-0"></div>
                 </div>
               </li>
             </ul>
-            <div class='my-4 coupon'>
-              <div class='input-group'>
-                <input type="text" class='form-control' placeholder="請輸入優惠代碼" v-model='coupon_num'>
-                <div class='input-group-append'>
-                  <span class='input-group-text coupon-send' @click.prevent="addCouponCode">{{ $t("Billinginfo.coupon_sub") }}</span>
+            <div class="my-4 coupon">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="請輸入優惠代碼" v-model="coupon_num">
+                <div class="input-group-append">
+                  <span class="input-group-text coupon-send" @click.prevent="addCouponCode">{{ $t("Billinginfo.coupon_sub") }}</span>
                 </div>
               </div>
               <div v-if="!coupon_success"><p class="text-danger">{{ $t("Billinginfo.coupon_failed") }}</p></div>
@@ -54,46 +54,46 @@
           </div>
           <div class="col-12 col-md-7">
             <ValidationObserver v-slot="{ handleSubmit }">
-              <form class='buyer_infos' @submit.prevent="handleSubmit(createOrder)">
-                <div class='form-row'>
-                  <div class='form-group col-sm-6'>
+              <form class="buyer_infos" @submit.prevent="handleSubmit(createOrder)">
+                <div class="form-row">
+                  <div class="form-group col-sm-6">
                     <label for="buyer-name">
-                      {{ $t("Billinginfo.form_name") }}<span class='marker'>*</span>
+                      {{ $t("Billinginfo.form_name") }}<span class="marker">*</span>
                     </label>
-                    <ValidationProvider rules='required' v-slot='{ errors , classes }'>
+                    <ValidationProvider rules="required" v-slot="{ errors , classes }">
                       <div :class="classes">
-                        <input type="text" id="buyer-name" class='form-control' placeholder="請輸入姓名" v-model="form.user.name">
+                        <input type="text" id="buyer-name" class="form-control" placeholder="請輸入姓名" v-model="form.user.name">
                         <span class="text-danger">{{ errors[0] }}</span>
                       </div>
                     </ValidationProvider>
                   </div>
-                  <div class='form-group col-sm-6'>
+                  <div class="form-group col-sm-6">
                     <label for="buyer-tel">
-                      {{ $t("Billinginfo.form_tel") }}<span class='marker'>*</span>
+                      {{ $t("Billinginfo.form_tel") }}<span class="marker">*</span>
                     </label>
-                    <ValidationProvider rules='required' v-slot='{ errors , classes }'>
+                    <ValidationProvider rules="required" v-slot="{ errors , classes }">
                       <div :class="classes">
-                        <input type="text" id="buyer-tel" class='form-control' placeholder="請輸入電話號碼" v-model="form.user.tel">
+                        <input type="text" id="buyer-tel" class="form-control" placeholder="請輸入電話號碼" v-model="form.user.tel">
                         <span class="text-danger">{{ errors[0] }}</span>
                       </div>
                     </ValidationProvider>
                   </div>
                 </div>
-                <div class='form-row'>
-                  <div class='form-group col-sm-6'>
-                    <label for="buyer-email">Email<span class='marker'>*</span>
+                <div class="form-row">
+                  <div class="form-group col-sm-6">
+                    <label for="buyer-email">Email<span class="marker">*</span>
                     </label>
-                    <ValidationProvider name='email' rules='required|email' v-slot='{ errors , classes }'>
+                    <ValidationProvider name="email" rules="required|email" v-slot="{ errors , classes }">
                       <div :class="classes">
                         <input type="email" class="form-control" name="email" id="buyer-email" placeholder="請輸入 Email" v-model="form.user.email">
                           <span class="text-danger">{{ errors[0] }}</span>
                       </div>
                     </ValidationProvider>
                   </div>
-                  <div class='form-group col-sm-6'>
+                  <div class="form-group col-sm-6">
                     <div>
                       <label for="buyer-pay">{{ $t("Billinginfo.form_pay") }}</label>
-                        <select name="payment" id="buyer-pay" class='form-control' v-model="form.user.payment">
+                        <select name="payment" id="buyer-pay" class="form-control" v-model="form.user.payment">
                           <option value="CVS">{{ $t("Billinginfo.pay_op1") }}</option>
                           <option value="CTP">{{ $t("Billinginfo.pay_op2") }}</option>
                         </select>
@@ -101,21 +101,21 @@
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="buyeraddress">{{ $t("Billinginfo.form_adr") }}<span class='marker'>*</span>
+                  <label for="buyeraddress">{{ $t("Billinginfo.form_adr") }}<span class="marker">*</span>
                   </label>
-                  <ValidationProvider rules='required' v-slot='{ errors , classes }'>
+                  <ValidationProvider rules="required" v-slot="{ errors , classes }">
                     <div :class="classes">
                       <input type="text" class="form-control" name="address" id="buyeraddress" placeholder="請輸入地址" v-model="form.user.address">
                       <span class="text-danger">{{ errors[0] }}</span>
                     </div>
                   </ValidationProvider>
                 </div>
-                <div class='form-group'>
+                <div class="form-group">
                   <label for="comment">{{ $t("Billinginfo.form_comment") }}</label>
                   <textarea name="" id="comment" class="form-control" cols="10" rows="3" v-model="form.message" placeholder="歡迎輸入想對我們說的話"></textarea>
                 </div>
-                <div class='sub_order'>
-                  <button class='btn-order' type='submit'>{{ $t("Billinginfo.next_btn") }}</button>
+                <div class="sub_order">
+                  <button class="btn-order" type="submit">{{ $t("Billinginfo.next_btn") }}</button>
                 </div>
               </form>
             </ValidationObserver>

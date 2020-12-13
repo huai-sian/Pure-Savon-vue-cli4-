@@ -1,29 +1,29 @@
 <template>
   <div>
     <Bannerimg>
-      <ProgressStep :current='step'></ProgressStep>
+      <ProgressStep :current="step"></ProgressStep>
     </Bannerimg>
-      <div class='container orders_check'>
+      <div class="container orders_check">
         <h3>{{ $t("Checkorder.step_title") }}</h3>
-          <ul class='order'>
-            <li v-for='item in cart' :key='item.id' class="pb-3 orderList">
-              <div class='row'>
-                <div class='col-3 p-0'>
-                  <div class='pro-img'>
-                    <img :src="item.imageUrl" alt="">
+          <ul class="order">
+            <li v-for="item in cart" :key="item.id" class="pb-3 orderList">
+              <div class="row">
+                <div class="col-3 p-0">
+                  <div class="pro-img">
+                    <img :src="item.imageUrl" :alt="item.title">
                   </div>
                 </div>
-                <div class='col-6 p-0'>
-                  <div class='row'>
-                    <div class='col-12 col-md-6'>
-                      <div class='pro-name'>{{ item.title }}</div>
+                <div class="col-6 p-0">
+                  <div class="row">
+                    <div class="col-12 col-md-6">
+                      <div class="pro-name">{{ item.title }}</div>
                     </div>
-                    <div class='col-12 col-md-6'>
-                      <div class='numControl'>
+                    <div class="col-12 col-md-6">
+                      <div class="numControl">
                         <button type="button" class="btn-minus" @click.prevent="changeNum(item,-1)">
                           <i class="fa fa-minus" aria-hidden="true"></i>
                         </button>
-                        <input class="amount" type="number" max="10" min='1' v-model="item.qty" @change='changeAmount(item,item.qty)'>
+                        <input class="amount" type="number" max="10" min='1' v-model="item.qty" @change="changeAmount(item,item.qty)">
                         <button type="button" class="btn-plus" @click.prevent="changeNum(item,1)">
                           <i class="fa fa-plus" aria-hidden="true"></i>
                         </button>
@@ -31,30 +31,30 @@
                     </div>
                   </div>
                 </div>
-                <div class='col-2 p-0'>
-                  <div class='pro_price'>NT{{ item.origin_price|currency }}</div>
+                <div class="col-2 p-0">
+                  <div class="pro_price">NT{{ item.origin_price|currency }}</div>
                 </div>
-                <div class='col-1 p-0'>
-                  <div class="pro_del" @click.prevent='removeCart(item)'><i class="fas fa-trash-alt"></i></div>
+                <div class="col-1 p-0">
+                  <div class="pro_del" @click.prevent="removeCart(item)"><i class="fas fa-trash-alt"></i></div>
                 </div>
               </div>
             </li>
-            <li class='pt-4'>
-              <div class='row summary'>
-                <div class='col-7 p-0'>共{{ cartitemqty }}件</div>
-                <div class='col-1 p-0'>{{ $t("Checkorder.summary") }}</div>
-                <div class='col-2 p-0'>NT{{ total|currency }}</div>
-                <div class='col-2 p-0'></div>
+            <li class="pt-4">
+              <div class="row summary">
+                <div class="col-7 p-0">共{{ cartitemqty }}件</div>
+                <div class="col-1 p-0">{{ $t("Checkorder.summary") }}</div>
+                <div class="col-2 p-0">NT{{ total|currency }}</div>
+                <div class="col-2 p-0"></div>
               </div>
             </li>
           </ul>
-          <div class='gocheck'>
-            <button class='btn-back' @click.prevent="$router.push('/productlist')"><i>{{ $t("Checkorder.back_btn") }}</i></button>
-            <button class='btn-check' v-if='clicked===true' @click.prevent='goNextPage'><i></i>{{ $t("Checkorder.next") }}</button>
-            <button class='btn-check' v-else @click.prevent='confirmCart'><i></i>{{ $t("Checkorder.next_btn") }}</button>
+          <div class="gocheck">
+            <button class="btn-back" @click.prevent="$router.push('/productlist')"><i>{{ $t("Checkorder.back_btn") }}</i></button>
+            <button class="btn-check" v-if="clicked===true" @click.prevent="goNextPage"><i></i>{{ $t("Checkorder.next") }}</button>
+            <button class="btn-check" v-else @click.prevent="confirmCart"><i></i>{{ $t("Checkorder.next_btn") }}</button>
           </div>
           <div class="declare">
-            <div class='declare_left'>{{ $t("Checkorder.warning_title") }}</div>
+            <div class="declare_left">{{ $t("Checkorder.warning_title") }}</div>
             <h5><i class="fas fa-exclamation-circle"></i>{{ $t("Checkorder.notice_title") }}</h5>
             <ul>
               <li>{{ $t("Checkorder.notice1") }}</li>

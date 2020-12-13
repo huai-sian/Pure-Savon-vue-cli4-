@@ -2,7 +2,7 @@
   <div>
     <loading :active.sync="isLoading" >
     </loading>
-      <div class='row mt-4'>
+      <div class="row mt-4">
         <div class="col-md-4 mb-4" v-for="product in products" :key="product.id">
           <div class="card border-0 shadow-sm">
             <div style="height: 150px; background-size: cover; background-position: center"
@@ -26,8 +26,8 @@
                   查看更多
               </button>
               <button type="button" class="btn btn-outline-danger btn-sm ml-auto" @click.prevent="addToCart(product.id)">
-                <i class="fas fa-shopping-cart" v-if='status.loadingItem!==product.id'></i>
-                <i class="fas fa-spinner fa-spin" v-if='status.loadingItem===product.id'></i>
+                <i class="fas fa-shopping-cart" v-if="status.loadingItem!==product.id"></i>
+                <i class="fas fa-spinner fa-spin" v-if="status.loadingItem===product.id"></i>
                   加到購物車
               </button>
             </div>
@@ -44,7 +44,7 @@
               </button>
             </div>
             <div class="modal-body">
-              <img :src="singleProduct.imageUrl" class="img-fluid" alt="">
+              <img :src="singleProduct.imageUrl" class="img-fluid" :alt="singleProduct.title">
               <blockquote class="blockquote mt-3">
                 <p class="mb-0">{{ singleProduct.content }}</p>
                 <footer class="blockquote-footer text-right">{{ singleProduct.description }}</footer>
@@ -66,19 +66,19 @@
               </div>
               <button type="button" class="btn btn-primary" @click.prevent="addToCart(singleProduct.id,singleProduct.num)"
                 >
-                <i class="fas fa-shopping-cart" v-if='status.loadingItem!==singleProduct.id'></i>
-                <i class="fas fa-spinner fa-spin" v-if='status.loadingItem===singleProduct.id'></i>
+                <i class="fas fa-shopping-cart" v-if="status.loadingItem!==singleProduct.id"></i>
+                <i class="fas fa-spinner fa-spin" v-if="status.loadingItem===singleProduct.id"></i>
                 加到購物車
               </button>
             </div>
           </div>
         </div>
       </div>
-      <Pagination :pages='pagination' @switchpage="getProducts"></Pagination>
+      <Pagination :pages="pagination" @switchpage="getProducts"></Pagination>
       <hr>
       <!-- 購物清單列表 -->
       <div class="row justify-content-center mt-4" >
-        <div class='col-auto'>
+        <div class="col-auto">
           <table class="table table-responsive">
             <thead>
               <th></th>
@@ -88,9 +88,9 @@
             </thead>
             <tbody v-if="cart.carts">
               <tr v-for="item in cart.carts" :key='item.id'>
-                <td><button class="btn btn-outline-danger btn-sm" @click.prevent='delCart(item.id)'><i class="fas fa-trash-alt"></i></button></td>
+                <td><button class="btn btn-outline-danger btn-sm" @click.prevent="delCart(item.id)"><i class="fas fa-trash-alt"></i></button></td>
                 <td >{{ item.product.title }}
-                  <div class='text-success' v-if='item.coupon'>已套用優惠券</div>
+                  <div class="text-success" v-if="item.coupon">已套用優惠券</div>
                 </td>
                 <td>{{ item.qty }}/{{ item.product.unit }}</td>
                 <td>{{ item.final_total | floor }}</td>
@@ -101,16 +101,16 @@
                 <td>總計</td>
                 <td>{{ cart.total }}</td>
               </tr>
-              <tr v-if='cart.total!==cart.final_total'>
+              <tr v-if="cart.total!==cart.final_total">
                 <td class="text-success">折扣價</td>
                 <td class="text-success">{{ cart.final_total | floor }}</td>
               </tr>
             </tfoot>
           </table>
-          <div class='input-group mb-3 input-group-sm'>
-            <input type="text" placeholder="請輸入優惠碼" v-model='coupon_code' class='form-control'>
-            <div class='input-group-append'>
-              <button class='btn btn-outline-secondary' @click.prevent='addCouponCode'>套用優惠碼</button>
+          <div class="input-group mb-3 input-group-sm">
+            <input type="text" placeholder="請輸入優惠碼" v-model="coupon_code" class="form-control">
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary" @click.prevent="addCouponCode">套用優惠碼</button>
             </div>
           </div>
           <div v-if="coupon_success"><p class="text-danger">此優惠券無效</p></div>
@@ -122,7 +122,7 @@
           <form class="col-md-6" @submit.prevent="handleSubmit(createOrder)">
             <div class="form-group">
               <label for="useremail">Email</label>
-              <ValidationProvider name='email' rules='required|email' v-slot='{ errors, classes }'>
+              <ValidationProvider name="email" rules="required|email" v-slot="{ errors, classes }">
                 <div :class="classes">
                   <input type="email" class="form-control" name="email" id="useremail"
                             v-model="form.user.email" placeholder="請輸入 Email">
@@ -132,7 +132,7 @@
             </div>
             <div class="form-group">
               <label for="username">收件人姓名</label>
-              <ValidationProvider rules='required' v-slot='{ errors, classes }'>
+              <ValidationProvider rules="required" v-slot="{ errors, classes }">
                 <div :class="classes">
                   <input type="text" class="form-control" name="name" id="username"
                             v-model="form.user.name" placeholder="輸入姓名">
@@ -142,7 +142,7 @@
             </div>
             <div class="form-group">
               <label for="usertel">收件人電話</label>
-              <ValidationProvider rules='required' v-slot='{ errors, classes }'>
+              <ValidationProvider rules="required" v-slot="{ errors, classes }">
                 <div :class="classes">
                   <input type="tel" class="form-control" id="usertel" v-model="form.user.tel" placeholder="請輸入電話">
                   <span class="text-danger">{{ errors[0] }}</span>
@@ -151,7 +151,7 @@
             </div>
             <div class="form-group">
               <label for="useraddress">收件人地址</label>
-              <ValidationProvider rules='required' v-slot='{ errors ,classes }'>
+              <ValidationProvider rules="required" v-slot="{ errors, classes }">
                 <div :class="classes">
                   <input type="text" class="form-control" name="address" id="useraddress" v-model="form.user.address"
                             placeholder="請輸入地址">
@@ -164,7 +164,7 @@
               <textarea name="" id="comment" class="form-control" cols="30" rows="10" v-model="form.message"></textarea>
             </div>
             <div class="text-right">
-              <button type='submit' class="btn btn-danger">送出訂單</button>
+              <button type="submit" class="btn btn-danger">送出訂單</button>
             </div>
           </form>
         </div>

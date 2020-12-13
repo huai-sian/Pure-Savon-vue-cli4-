@@ -3,34 +3,34 @@
     <loading :active.sync="isLoading" >
     </loading>
     <Bannerimg>
-      <Series :serieslist='serieslist' :currentChoice='currentChoice' @getSeries='changeCat'></Series>
+      <Series :serieslist="serieslist" :currentChoice="currentChoice" @getSeries="changeCat"></Series>
     </Bannerimg>
-    <div class='container-fluid productContent'>
+    <div class="container-fluid productContent">
       <div class="row">
-        <div class="col-xl-3 col-lg-4 col-sm-6 col-xs-12 " v-for="item in filterData" :key='item.id'>
-          <div class='productCard' :class="{ 'disabled':!item.is_enabled }" @click='$router.push(`/product_detail/${item.id}`)'>
-            <div class='soldOut' v-if="!item.is_enabled">
+        <div class="col-xl-3 col-lg-4 col-sm-6 col-xs-12 " v-for="item in filterData" :key="item.id">
+          <div class="productCard" :class="{ 'disabled':!item.is_enabled }" @click="$router.push(`/product_detail/${item.id}`)">
+            <div class="soldOut" v-if="!item.is_enabled">
               <h5>售完</h5>
             </div>
-            <div class='top'>
-              <img :src="item.imageUrl" alt="">
-              <div class='tag' v-if='item.price'>特價中</div>
-              <i class="fas fa-heart liked" v-if='isliked(item)' @click.stop="addTowish(item)"></i>
-              <i class='far fa-heart' v-else @click.stop="addTowish(item)"></i>
+            <div class="top">
+              <img :src="item.imageUrl" :alt="item.title">
+              <div class="tag" v-if="item.price">特價中</div>
+              <i class="fas fa-heart liked" v-if="isliked(item)" @click.stop="addTowish(item)"></i>
+              <i class="far fa-heart" v-else @click.stop="addTowish(item)"></i>
             </div>
-            <div class='bottom'>
+            <div class="bottom">
               <h3>{{ item.title }}</h3>
               <div>
-                <div class='price'>NT{{ item.origin_price | currency }}</div>
+                <div class="price">NT{{ item.origin_price | currency }}</div>
                 <i class="fas fa-spinner fa-spin" v-if="status.loadingItem===item.id"></i>
-                <i class="fas fa-shopping-cart" @click.stop='addTocart(item)' v-else></i>
+                <i class="fas fa-shopping-cart" @click.stop="addTocart(item)" v-else></i>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <Pagination :pages='pagination' @switchpage="getPagination"></Pagination>
+    <Pagination :pages="pagination" @switchpage="getPagination"></Pagination>
   </div>
 </template>
 <script>
@@ -142,7 +142,6 @@ export default {
       localStorage.setItem('wish', JSON.stringify(vm.wish))
       vm.getWish()
       vm.$bus.$emit('wish:get')
-      // vm.$bus.$emit('message:push','已加入慾望清單','success');
     },
     getWish () {
       this.wish = JSON.parse(localStorage.getItem('wish')) || []

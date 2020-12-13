@@ -1,5 +1,5 @@
 <template>
-  <div class='d-flex justify-content-center align-items-center'>
+  <div class="d-flex justify-content-center align-items-center">
     <ul class="pages">
       <li class="page" :class="{'disabled':!pages.has_pre}">
         <a class="pageNum" href="#"  @click.prevent="changepage(pages.current_page-1)">
