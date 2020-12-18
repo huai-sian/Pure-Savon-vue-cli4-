@@ -56,7 +56,13 @@ extend('email', {
   ...email,
   message: '郵件地址不正確'
 })
-
+extend('phone', {
+  validate: value => {
+    const reg = /^09[0-9]{8}$/
+    return reg.test(value)
+  },
+  message: '請輸入正確號碼'
+})
 new Vue({
   router,
   i18n,

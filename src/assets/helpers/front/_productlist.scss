@@ -1,5 +1,6 @@
 .productContent{
   padding:1rem 4.5rem;
+  min-height:85vh;
   @include small{
     padding:1rem 3rem;
   }

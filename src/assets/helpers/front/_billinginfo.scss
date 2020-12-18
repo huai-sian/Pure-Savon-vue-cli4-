@@ -69,6 +69,11 @@
         &:hover{
           background-color:$secondary_color;
         }
+        &.disabled{
+          pointer-events: none;
+          background-color:$secondary_color;
+          cursor: none;
+        }
       }
     }
   }

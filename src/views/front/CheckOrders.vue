@@ -1,5 +1,7 @@
 <template>
   <div>
+    <loading :active.sync="isLoading" >
+    </loading>
     <Bannerimg>
       <ProgressStep :current="step"></ProgressStep>
     </Bannerimg>
@@ -51,7 +53,7 @@
           <div class="gocheck">
             <button class="btn-back" @click.prevent="$router.push('/productlist')"><i>{{ $t("Checkorder.back_btn") }}</i></button>
             <button class="btn-check" v-if="clicked===true" @click.prevent="goNextPage"><i></i>{{ $t("Checkorder.next") }}</button>
-            <button class="btn-check" v-else @click.prevent="confirmCart"><i></i>{{ $t("Checkorder.next_btn") }}</button>
+            <button class="btn-check btn_confirmcart" v-else @click.once="confirmCart"><i></i>{{ $t("Checkorder.next_btn") }}</button>
           </div>
           <div class="declare">
             <div class="declare_left">{{ $t("Checkorder.warning_title") }}</div>
@@ -163,7 +165,7 @@ export default {
     },
     confirmCart () { // 利用api加入後台購物車中
       const vm = this
-      vm.clicked = true
+      vm.isLoading = true
       const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/cart`
       vm.cart = JSON.parse(localStorage.getItem('cart')) || []
       vm.cart.forEach((item) => {
@@ -178,6 +180,10 @@ export default {
           }
         })
       })
+      setTimeout(function () {
+        vm.isLoading = false
+        vm.clicked = true
+      }, 1000)
     },
     goNextPage () {
       this.goNext = true

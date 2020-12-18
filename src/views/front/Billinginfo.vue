@@ -71,7 +71,7 @@
                     <label for="buyer-tel">
                       {{ $t("Billinginfo.form_tel") }}<span class="marker">*</span>
                     </label>
-                    <ValidationProvider rules="required" v-slot="{ errors , classes }">
+                    <ValidationProvider rules="required|phone" v-slot="{ errors , classes }">
                       <div :class="classes">
                         <input type="text" id="buyer-tel" class="form-control" placeholder="請輸入電話號碼" v-model="form.user.tel">
                         <span class="text-danger">{{ errors[0] }}</span>
@@ -115,7 +115,7 @@
                   <textarea name="" id="comment" class="form-control" cols="10" rows="3" v-model="form.message" placeholder="歡迎輸入想對我們說的話"></textarea>
                 </div>
                 <div class="sub_order">
-                  <button class="btn-order" type="submit">{{ $t("Billinginfo.next_btn") }}</button>
+                  <button class="btn-order" type="submit" :class="{'disabled': clicked===true}">{{ $t("Billinginfo.next_btn") }}</button>
                 </div>
               </form>
             </ValidationObserver>
@@ -158,6 +158,7 @@ export default {
       isLoading: false,
       coupon_num: '',
       coupon_success: true,
+      clicked: false,
       form: {
         user: {
           name: '',
@@ -210,6 +211,7 @@ export default {
       const vm = this
       const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/order`
       const order = vm.form
+      vm.clicked = true
       vm.$http.post(api, { data: order }).then((response) => {
         if (response.data.success) {
           vm.goNext = true
