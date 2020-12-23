@@ -33,10 +33,12 @@
     <Pagination :pages="pagination" @switchpage="getPagination"></Pagination>
   </div>
 </template>
+
 <script>
 import Bannerimg from '@/components/Bannerimg'
 import Series from '@/components/Series'
 import Pagination from '@/components/Pagination'
+
 export default {
   name: 'Productlist',
   components: {

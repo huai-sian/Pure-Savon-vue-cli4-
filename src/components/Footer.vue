@@ -24,6 +24,7 @@
     </footer>
   </div>
 </template>
+
 <script>
 /* global $ */
 export default {

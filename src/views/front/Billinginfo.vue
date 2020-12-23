@@ -5,7 +5,7 @@
     <Bannerimg>
       <ProgressStep :current="step"></ProgressStep>
     </Bannerimg>
-    <div class="container">
+    <div class="container_fix">
       <h3>{{ $t("Billinginfo.step_title") }}</h3>
         <div class="row mb-4">
           <div class="col-12 col-md-5">
@@ -143,10 +143,12 @@
     </div>
   </div>
 </template>
+
 <script>
 /* global $ */
 import Bannerimg from '@/components/Bannerimg'
 import ProgressStep from '@/components/ProgressStep'
+
 export default {
   name: 'Billinginfo',
   data () {

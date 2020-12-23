@@ -46,6 +46,7 @@
     </nav>
   </div>
 </template>
+
 <style scope>
 .active{
     color: cadetblue;

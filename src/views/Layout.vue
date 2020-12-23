@@ -11,11 +11,13 @@
     </div>
   </div>
 </template>
+
 <script>
 import Navbar from '@/components/Navigation_bar'
 import Footer from '@/components/Footer'
 import Alert from '@/components/AlertMessage'
 import Totop from '@/components/Totop'
+
 export default {
   name: 'Layout',
   components: {

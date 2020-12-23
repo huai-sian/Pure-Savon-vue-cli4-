@@ -41,7 +41,7 @@
                   <i class="fa fa-plus" aria-hidden="true"></i>
                 </button>
               </div>
-              <button class="btn-cart" @click.prevent="addToCart(product,productnum)"><i class="fas fa-shopping-cart"></i>加入購物車</button>
+              <button type="button" class="btn-cart" @click.prevent="addToCart(product,productnum)"><i class="fas fa-shopping-cart"></i>加入購物車</button>
             </li>
             <li>
               <p class="product_des">{{ product.description }}</p>
@@ -60,15 +60,15 @@
         <h4 class="mb-4 h4">{{ $t("Product_detail.notice_title") }}</h4>
         <div class="notice">
           <div class="return">
-            <h4 class="notice_title">{{ $t("Product_detail.noticesub1") }}</h4>
+            <h4 class="notice_title"><i class="fas fa-exclamation-triangle"></i>{{ $t("Product_detail.noticesub1") }}<i class="fas fa-exclamation-triangle"></i></h4>
             <p class="notice_txt">{{ $t("Product_detail.noticesub1_con") }}</p>
           </div>
           <div class="aware">
-            <h4 class="notice_title">{{ $t("Product_detail.noticesub2") }}</h4>
+            <h4 class="notice_title"><i class="fas fa-exclamation-triangle"></i>{{ $t("Product_detail.noticesub2") }}<i class="fas fa-exclamation-triangle"></i></h4>
             <p class="notice_txt">{{ $t("Product_detail.noticesub2_con") }}</p>
           </div>
           <div class="ship">
-            <h4 class="notice_title">{{ $t("Product_detail.noticesub3") }}</h4>
+            <h4 class="notice_title"><i class="fas fa-exclamation-triangle"></i>{{ $t("Product_detail.noticesub3") }}<i class="fas fa-exclamation-triangle"></i></h4>
             <p class="notice_txt">{{ $t("Product_detail.noticesub3_con") }}</p>
           </div>
         </div>
@@ -94,9 +94,11 @@
     </div>
   </div>
 </template>
+
 <script>
 /* global $ */
 import Bannerimg from '@/components/Bannerimg'
+
 export default {
   name: 'Product_detail',
   components: {

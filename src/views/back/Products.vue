@@ -3,7 +3,7 @@
     <loading :active.sync="isLoading" >
     </loading>
     <div class="text-right">
-      <button class="btn btn-primary mb-3" @click.prevent="openModal(true)">建立新的產品</button>
+      <button type="button" class="btn btn-primary mb-3" @click.prevent="openModal(true)">建立新的產品</button>
     </div>
     <table class="table mt-4">
       <thead>
@@ -27,8 +27,8 @@
             <span v-else>未啟用</span>
           </td>
           <td>
-            <button class="btn btn-open btn-sm" @click.prevent="openModal(false,item)">編輯</button>
-            <button class="btn btn-delete btn-sm" @click.prevent="openDeleteModal(item)">刪除</button>
+            <button type="button" class="btn btn-open btn-sm" @click.prevent="openModal(false,item)">編輯</button>
+            <button type="button" class="btn btn-delete btn-sm" @click.prevent="openDeleteModal(item)">刪除</button>
           </td>
         </tr>
       </tbody>
@@ -159,9 +159,11 @@
     </div>
   </div>
 </template>
+
 <script>
 /* global $ */
 import Pagination from '@/components/Pagination'
+
 export default {
   data () {
     return {
@@ -184,9 +186,13 @@ export default {
       const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/products?page=${page}`
       vm.isLoading = true
       vm.$http.get(api).then((response) => {
-        vm.products = response.data.products
-        vm.pagination = response.data.pagination
-        vm.isLoading = false
+        if (!response.data.success) {
+          vm.$bus.$emit('message:push', response.data.message, 'danger')
+        } else {
+          vm.products = response.data.products
+          vm.pagination = response.data.pagination
+          vm.isLoading = false
+        }
       })
     },
     openModal (isNew, item) {

@@ -63,8 +63,8 @@
               </tr>
             </table>
             <div class="endpay">
-              <button v-if="!order.is_paid" @click.prevent="completePay">{{ $t("Checkout.go_paid") }}</button>
-              <button v-else @click.prevent="$router.push('/productlist')">{{ $t("Checkout.backtoshop") }}</button>
+              <button type="button" v-if="!order.is_paid" @click.prevent="completePay">{{ $t("Checkout.go_paid") }}</button>
+              <button type="button" v-else @click.prevent="$router.push('/productlist')">{{ $t("Checkout.backtoshop") }}</button>
             </div>
           </div>
         </div>
@@ -88,10 +88,12 @@
     </div>
   </div>
 </template>
+
 <script>
 /* global $ */
 import Bannerimg from '@/components/Bannerimg'
 import ProgressStep from '@/components/ProgressStep'
+
 export default {
   name: 'Checkout',
   components: {

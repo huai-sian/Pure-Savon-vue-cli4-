@@ -1,34 +1,34 @@
-.unpaid{
-	color:red;
+.unpaid {
+	color: red;
 }
-.ispaid{
-  color:green;
+.ispaid {
+  color: green;
 }
-.btn-open{
+.btn-open {
   background-color: $primary_color;
-  color:$white_txt;
-  &:hover{
-    background-color:$secondary_color;
-    color:$white_txt;
+  color: $white_txt;
+  &:hover {
+    background-color: $secondary_color;
+    color: $white_txt;
   }
 }
 #openOrModal {
   .modal-header{
     background-color: $primary_color;
   }
-  .btn-close{
+  .btn-close {
     background-color: $primary_color;
-    color:$white_txt;
-    &:hover{
+    color: $white_txt;
+    &:hover {
       background-color: $secondary_color;
     }
   }
-  .btn-delete{
-    background-color:$secondary_color;
-    color: $white_txt; 
-    &:hover{
+  .btn-delete {
+    background-color: $secondary_color;
+    color: $white_txt;
+    &:hover {
       background-color: $primary_color;
-      color:$white_txt;
-    } 
+      color: $white_txt;
+    }
   }
 }

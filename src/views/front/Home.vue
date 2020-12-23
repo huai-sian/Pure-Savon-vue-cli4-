@@ -6,29 +6,29 @@
             <div class="carousel-item active">
               <img src="../../assets/images/thanos-pal-v_Cc1qxKuBsmin.jpg" alt="純粹，從未改變的初衷，獻給渴望簡單的你">
               <div class="slide-box"></div>
-              <h1>{{ $t("Carousel.slogan1") }}·Pure Savon</h1>
+              <h2>{{ $t("Carousel.slogan1") }}·Pure Savon</h2>
               <h3>{{ $t("Carousel.detail1") }}
               </h3>
               <p>{{ $t("Carousel.subscribe") }}</p>
-              <button class="carousel-btn" @click.prevent='$router.push("/productlist")'>{{ $t("Carousel.goshopping") }}</button>
+              <button type="button" class="carousel-btn" @click.prevent='$router.push("/productlist")'>{{ $t("Carousel.goshopping") }}</button>
             </div>
             <div class="carousel-item">
               <img src="../../assets/images/duncan-kidd-uwFjCwhXMhE-compress.jpg" alt="天然，一口芳香氣息，致大地最原始的氣息">
               <div class="slide-box"></div>
-              <h1>{{ $t("Carousel.slogan2") }}·Pure Savon</h1>
+              <h2>{{ $t("Carousel.slogan2") }}·Pure Savon</h2>
               <h3>{{ $t("Carousel.detail2") }}
               </h3>
               <p>{{ $t("Carousel.subscribe") }}</p>
-              <button class="carousel-btn" @click.prevent='$router.push("/productlist")'>{{ $t("Carousel.goshopping") }}</button>
+              <button type="button" class="carousel-btn" @click.prevent='$router.push("/productlist")'>{{ $t("Carousel.goshopping") }}</button>
             </div>
             <div class="carousel-item">
               <img src="../../assets/images/thanos-pal-8PWY6aTanhQ-unsplash.jpg" alt="獨特，與肌膚調和，只屬於你的專有香味">
               <div class="slide-box"></div>
-              <h1>{{ $t("Carousel.slogan3") }}·Pure Savon</h1>
+              <h2>{{ $t("Carousel.slogan3") }}·Pure Savon</h2>
               <h3>{{ $t("Carousel.detail3") }}
               </h3>
               <p>{{ $t("Carousel.subscribe") }}</p>
-              <button class="carousel-btn" @click.prevent='$router.push("/productlist")'>{{ $t("Carousel.goshopping") }}</button>
+              <button type="button" class="carousel-btn" @click.prevent='$router.push("/productlist")'>{{ $t("Carousel.goshopping") }}</button>
             </div>
           </div>
         </div>
@@ -97,7 +97,7 @@
           <div class="secContent">
             <h3>{{ $t("Home.topsale1_title") }}</h3>
             <p>{{ $t("Home.topsale1_con") }}</p>
-            <button @click.prevent="$router.push('/product_detail/-MJkRV4R-jT-kd_2sU-4')">{{ $t("Home.topsale_goto") }}</button>
+            <button type="button" @click.prevent="$router.push('/product_detail/-MJkRV4R-jT-kd_2sU-4')">{{ $t("Home.topsale_goto") }}</button>
           </div>
         </div>
         <div class="sec d-flex" data-aos="fade-left" data-aos-delay="100" data-aos-once="true" data-aos-easing="ease-in">
@@ -105,7 +105,7 @@
           <div class="secContent">
             <h3>{{ $t("Home.topsale2_title") }}</h3>
             <p>{{ $t("Home.topsale2_con") }}</p>
-            <button @click.prevent="$router.push('/product_detail/-MJkH4FoS31jCGQ32--c')">{{ $t("Home.topsale_goto") }}</button>
+            <button type="button" @click.prevent="$router.push('/product_detail/-MJkH4FoS31jCGQ32--c')">{{ $t("Home.topsale_goto") }}</button>
           </div>
         </div>
       </div>
@@ -217,6 +217,7 @@
     </div>
   </div>
 </template>
+
 <script>
 /* global $ */
 export default {
@@ -235,7 +236,7 @@ export default {
       $('#sendOverModal').modal('show')
     },
     scrollIntoView (viewId) {
-      $(viewId)[0].scrollIntoView(true)
+      $(viewId)[0].scrollIntoView({ block: 'start', inline: 'nearest', behavior: 'smooth' })
       $('html, body').animate({ scrollTop: $(viewId).offset().top }, 800)
     },
     showCouponmodal () {

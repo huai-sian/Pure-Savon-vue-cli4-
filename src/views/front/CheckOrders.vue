@@ -44,16 +44,16 @@
             <li class="pt-4">
               <div class="row summary">
                 <div class="col-7 p-0">共{{ cartitemqty }}件</div>
-                <div class="col-1 p-0">{{ $t("Checkorder.summary") }}</div>
+                <div class="col-2 p-0">{{ $t("Checkorder.summary") }}</div>
                 <div class="col-2 p-0">NT{{ total|currency }}</div>
-                <div class="col-2 p-0"></div>
+                <div class="col-1 p-0"></div>
               </div>
             </li>
           </ul>
           <div class="gocheck">
-            <button class="btn-back" @click.prevent="$router.push('/productlist')"><i>{{ $t("Checkorder.back_btn") }}</i></button>
-            <button class="btn-check" v-if="clicked===true" @click.prevent="goNextPage"><i></i>{{ $t("Checkorder.next") }}</button>
-            <button class="btn-check btn_confirmcart" v-else @click.once="confirmCart"><i></i>{{ $t("Checkorder.next_btn") }}</button>
+            <button type="button" class="btn-back" @click.prevent="$router.push('/productlist')"><i>{{ $t("Checkorder.back_btn") }}</i></button>
+            <button type="button" class="btn-check" v-if="clicked===true" @click.prevent="goNextPage"><i></i>{{ $t("Checkorder.next") }}</button>
+            <button type="button" class="btn-check btn_confirmcart" v-else @click.prevent="confirmCart" :class="{'doubleclick':preventDClicked === true}"><i></i>{{ $t("Checkorder.next_btn") }}</button>
           </div>
           <div class="declare">
             <div class="declare_left">{{ $t("Checkorder.warning_title") }}</div>
@@ -89,10 +89,12 @@
       </div>
   </div>
 </template>
+
 <script>
 /* global $ */
 import Bannerimg from '@/components/Bannerimg'
 import ProgressStep from '@/components/ProgressStep'
+
 export default {
   name: 'CheckOrders',
   components: {
@@ -108,7 +110,8 @@ export default {
       goNext: false,
       clicked: false,
       cartitemqty: 0,
-      isLoading: false
+      isLoading: false,
+      preventDClicked: false
     }
   },
   methods: {
@@ -165,6 +168,7 @@ export default {
     },
     confirmCart () { // 利用api加入後台購物車中
       const vm = this
+      vm.preventDClicked = true
       vm.isLoading = true
       const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/cart`
       vm.cart = JSON.parse(localStorage.getItem('cart')) || []
@@ -180,7 +184,7 @@ export default {
           }
         })
       })
-      setTimeout(function () {
+      setTimeout(() => {
         vm.isLoading = false
         vm.clicked = true
       }, 1000)

@@ -31,7 +31,7 @@
             <span v-else class="unpaid">未付款</span>
           </td>
           <td>
-            <button class="btn btn-open btn-sm" @click.prevent="openModal(item)">查看</button>
+            <button type="button" class="btn btn-open btn-sm" @click.prevent="openModal(item)">查看</button>
           </td>
         </tr>
       </tbody>
@@ -92,9 +92,11 @@
     </div>
   </div>
 </template>
+
 <script>
 /* global $ */
 import Pagination from '@/components/Pagination'
+
 export default {
   data () {
     return {
@@ -122,8 +124,8 @@ export default {
       })
     },
     openModal (item) {
-      $('#openOrModal').modal('show')
       this.tempOrder = { ...item }
+      $('#openOrModal').modal('show')
     }
   },
   created () {

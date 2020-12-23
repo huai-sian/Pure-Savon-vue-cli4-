@@ -88,7 +88,7 @@
             </thead>
             <tbody v-if="cart.carts">
               <tr v-for="item in cart.carts" :key='item.id'>
-                <td><button class="btn btn-outline-danger btn-sm" @click.prevent="delCart(item.id)"><i class="fas fa-trash-alt"></i></button></td>
+                <td><button type="button" class="btn btn-outline-danger btn-sm" @click.prevent="delCart(item.id)"><i class="fas fa-trash-alt"></i></button></td>
                 <td >{{ item.product.title }}
                   <div class="text-success" v-if="item.coupon">已套用優惠券</div>
                 </td>
@@ -110,7 +110,7 @@
           <div class="input-group mb-3 input-group-sm">
             <input type="text" placeholder="請輸入優惠碼" v-model="coupon_code" class="form-control">
             <div class="input-group-append">
-              <button class="btn btn-outline-secondary" @click.prevent="addCouponCode">套用優惠碼</button>
+              <button type="button" class="btn btn-outline-secondary" @click.prevent="addCouponCode">套用優惠碼</button>
             </div>
           </div>
           <div v-if="coupon_success"><p class="text-danger">此優惠券無效</p></div>
@@ -171,9 +171,11 @@
       </ValidationObserver>
   </div>
 </template>
+
 <script>
 /* global $ */
 import Pagination from '@/components/Pagination'
+
 export default {
   data () {
     return {

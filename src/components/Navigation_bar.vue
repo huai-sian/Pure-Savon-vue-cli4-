@@ -7,12 +7,12 @@
         </nav>
         <div class="d-flex justify-content-end navContent">
           <div class="dropdown">
-            <button class="btn-store" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <button type="button" class="btn-store" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <router-link to="/productlist"><i class="fas fa-store"></i><span class="d-none d-md-inline-block" style="font-size:1.1rem align-self-center">{{ $t("Navigation_bar.goshop") }}</span></router-link>
             </button>
           </div>
           <div class="dropdown ml-md-5 ml-1">
-            <button :class="{'disabled':avoidClick}" class="btn-heart" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="wishList">
+            <button type="button" :class="{'disabled':avoidClick}" class="btn-heart" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="wishList">
               <i class="fas fa-heart"></i>
               <span class="badge" v-if="wishlength||wishlength!==0">{{ wishlength }}</span>
             </button>
@@ -32,7 +32,7 @@
             </div>
           </div>
           <div class="dropdown ml-md-5">
-            <button :class="{'disabled':avoidClick}" class="btn-cart" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="cartList">
+            <button type="button" :class="{'disabled':avoidClick}" class="btn-cart" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="cartList">
               <i class="fas fa-shopping-cart"></i><span class="badge" v-if="cartLength || cartLength !== 0">{{ cartLength }}</span>
             </button>
             <div class="dropdown-menu dropdown-menu-right dropdown-menu-width p-2" aria-labelledby="cartList">
@@ -62,6 +62,7 @@
     </nav>
   </div>
 </template>
+
 <script>
 /* global $ */
 export default {

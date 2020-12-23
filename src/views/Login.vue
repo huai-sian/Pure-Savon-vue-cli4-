@@ -34,6 +34,10 @@ export default {
       const api = `${process.env.VUE_APP_APIPATH}/admin/signin`
       vm.$http.post(api, vm.user).then((response) => {
         if (response.data.success) {
+          console.log(response.data)
+          const token = response.data.token
+          const expired = response.data.expired
+          document.cookie = `pureSavonToken=${token};expires=${new Date(expired)};`
           vm.$router.push('/admin/products')
         }
       })
