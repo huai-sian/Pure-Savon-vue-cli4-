@@ -1,10 +1,8 @@
 # Pure-Savon(Vue-Cli4)
 
-## Project setup
-```
-npm install
-```
+## Demo
 
+https://huai-sian.github.io/Pure-Savon-vue-cli4-/#/
 ### Compiles and hot-reloads for development
 ```
 npm run serve
