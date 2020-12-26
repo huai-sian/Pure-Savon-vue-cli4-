@@ -62,7 +62,7 @@
                     </label>
                     <ValidationProvider rules="required" v-slot="{ errors , classes }">
                       <div :class="classes">
-                        <input type="text" id="buyer-name" class="form-control" placeholder="請輸入姓名" v-model="form.user.name">
+                        <input type="text" id="buyer-name" class="form-control" placeholder="請輸入姓名" v-model="form.user.name" v-focus>
                         <span class="text-danger">{{ errors[0] }}</span>
                       </div>
                     </ValidationProvider>

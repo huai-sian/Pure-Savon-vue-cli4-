@@ -31,6 +31,12 @@ const routes = [
         name: 'Coupon',
         component: () => import('../views/back/Coupon.vue'),
         meta: { requiresAuth: true }
+      },
+      {
+        path: 'analysis',
+        name: 'Analysis',
+        component: () => import('../views/back/Analysis.vue'),
+        meta: { requiresAuth: true }
       }
     ]
   },

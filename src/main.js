@@ -13,6 +13,7 @@ import * as rules from 'vee-validate/dist/rules'
 import { required, email } from 'vee-validate/dist/rules'
 import i18n from './i18n/i18n-lang.js'
 import zhTW from 'vee-validate/dist/locale/zh_TW.json'
+import VCharts from 'v-charts'
 import currencyfilter from './filters/currency'
 import dateString from './filters/date'
 import Floor from './filters/floor'
@@ -21,6 +22,7 @@ import AOS from 'aos'
 import 'aos/dist/aos.css'
 
 Vue.use(VueAxios, axios)
+Vue.use(VCharts)
 Vue.component('Loading', Loading)
 Vue.component('ValidationObserver', ValidationObserver)
 Vue.component('ValidationProvider', ValidationProvider)
