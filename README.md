@@ -3,20 +3,10 @@
 ## Demo
 
 https://huai-sian.github.io/Pure-Savon-vue-cli4-/#/
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## 簡介
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
+以 Vue.js框架實作購物網站，功能區分為前、後台：
+*前台
+*後台
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
