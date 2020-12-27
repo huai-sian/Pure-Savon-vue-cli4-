@@ -51,6 +51,7 @@ https://github.com/hexschool/vue-course-api-wiki/wiki
 ### 首頁
 * 中英文語言切換:於footer處選擇語言，分為繁體中文與英文（English）
 * 商品導覽、圖片輪播、聯絡窗口
+
 ![中英文語言切換](https://github.com/huai-sian/Pure-Savon-vue-cli4-/blob/master/language-transform.gif)
 ### 商品列表
 * 選擇商品系列
@@ -69,18 +70,22 @@ https://github.com/hexschool/vue-course-api-wiki/wiki
 * 呈現訂單資訊
 ### 願望清單
 * 可直接刪除願望商品，及直接加入購物車
+
 ![願望清單](https://github.com/huai-sian/BMI-caculator/blob/main/%E8%9E%A2%E5%B9%95%E5%BF%AB%E7%85%A7%202020-12-27%20%E4%B8%8B%E5%8D%883.59.09.png)
 ## 後台介紹
 
 ### 管理者登入
 * 管理者登入及登出
+
 ![管理者登入及登出](https://github.com/huai-sian/BMI-caculator/blob/main/%E8%9E%A2%E5%B9%95%E5%BF%AB%E7%85%A7%202020-12-27%20%E4%B8%8B%E5%8D%884.34.50.png)
 ### 商品管理
 * 商品管理：新增、修改及刪除商品資訊
 * 訂單管理：查看訂單資訊
 * 優惠券管理：新增、修改及刪除優惠券內容
+
 ![商務資訊管理](https://github.com/huai-sian/BMI-caculator/blob/main/backstage.gif)
 * 報表分析：以圖表呈現訂單及營收狀況
+
 ![報表分析](https://github.com/huai-sian/BMI-caculator/blob/main/%E8%9E%A2%E5%B9%95%E5%BF%AB%E7%85%A7%202020-12-27%20%E4%B8%8B%E5%8D%883.27.10.png)
 ## 聲明
 
