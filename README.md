@@ -72,10 +72,15 @@ https://github.com/hexschool/vue-course-api-wiki/wiki
 
 ### 管理者登入
 * 管理者登入及登出
+![管理者登入及登出](https://github.com/huai-sian/BMI-caculator/blob/main/%E8%9E%A2%E5%B9%95%E5%BF%AB%E7%85%A7%202020-12-27%20%E4%B8%8B%E5%8D%884.34.50.png)
 ### 商品管理
 * 商品管理：新增、修改及刪除商品資訊
 * 訂單管理：查看訂單資訊
 * 優惠券管理：新增、修改及刪除優惠券內容
+![商務資訊管理](https://github.com/huai-sian/BMI-caculator/blob/main/backstage.gif)
 * 報表分析：以圖表呈現訂單及營收狀況
-### Customize configuration
-See [Configuration Reference]
+![報表分析](https://github.com/huai-sian/BMI-caculator/blob/main/%E8%9E%A2%E5%B9%95%E5%BF%AB%E7%85%A7%202020-12-27%20%E4%B8%8B%E5%8D%883.27.10.png)
+## 聲明
+
+* 圖片來源：Unsplash
+* 本作品內之文字內容與圖片皆僅作為個人練習之用，無任何商業用途
