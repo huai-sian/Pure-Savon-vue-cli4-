@@ -65,6 +65,7 @@ https://github.com/hexschool/vue-course-api-wiki/wiki
 * 呈現訂單資訊
 ### 願望清單
 * 可直接刪除願望商品，及直接加入購物車
+![願望清單](https://github.com/huai-sian/BMI-caculator/blob/main/%E8%9E%A2%E5%B9%95%E5%BF%AB%E7%85%A7%202020-12-27%20%E4%B8%8B%E5%8D%883.59.09.png)
 ## 後台介紹
 
 ### 管理者登入
