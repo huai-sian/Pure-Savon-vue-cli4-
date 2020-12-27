@@ -49,6 +49,6 @@ https://github.com/hexschool/vue-course-api-wiki/wiki
 
 ### 
 * 中英文語言切換:於footer處選擇語言，分為繁體中文與英文（English）
-![中英文語言切換](https://imgur.com/lPqdbbv)
+![中英文語言切換](https://i.imgur.com/lPqdbbv.gif)
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
