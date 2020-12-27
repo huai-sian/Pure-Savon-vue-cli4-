@@ -42,6 +42,13 @@ https://huai-sian.github.io/Pure-Savon-vue-cli4-/#/
 * [Vue-i18n](https://github.com/kazupon/vue-i18n#readme)
 * [Font Awesome](https://fontawesome.com/)
 * [Google Font](https://fonts.google.com/)
+## API
 
+https://github.com/hexschool/vue-course-api-wiki/wiki
+## 前台介紹
+
+### 
+* 中英文語言切換:於footer處選擇語言，分為繁體中文與英文（English）
+![中英文語言切換](https://imgur.com/lPqdbbv)
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
