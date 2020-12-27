@@ -33,15 +33,15 @@ https://huai-sian.github.io/Pure-Savon-vue-cli4-/#/
 ## 使用的套件
 
 * [aos](https://michalsnik.github.io/aos/)
-* [Vue-axios]
-* [Vue-loading-overlay]
-* [Vue-router]
-* [Vee-validate]
-* [V-charts]
-* [Bootstrap]
-* [Vue-i18n]
-* [Font Awesome]
-* [Google Font]
+* [Vue-axios](https://github.com/imcvampire/vue-axios#readme)
+* [Vue-loading-overlay](https://github.com/ankurk91/vue-loading-overlay)
+* [Vue-router](https://github.com/vuejs/vue-router#readme)
+* [Vee-validate](https://vee-validate.logaretm.com/v3/)
+* [V-charts](https://v-charts.js.org/#/)
+* [Bootstrap](https://getbootstrap.com/)
+* [Vue-i18n](https://github.com/kazupon/vue-i18n#readme)
+* [Font Awesome](https://fontawesome.com/)
+* [Google Font](https://fonts.google.com/)
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
