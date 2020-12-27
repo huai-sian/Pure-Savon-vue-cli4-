@@ -32,14 +32,16 @@ https://huai-sian.github.io/Pure-Savon-vue-cli4-/#/
 * ESLint(eslint-config-standard)
 ## 使用的套件
 
-* aos
-* Vue-axios
-* Vue-loading-overlay
-* Vue-router
-* Vee-validate
-* V-charts
-* Bootstrap
-* Vue-i18n
+* [aos](https://michalsnik.github.io/aos/)
+* [Vue-axios]
+* [Vue-loading-overlay]
+* [Vue-router]
+* [Vee-validate]
+* [V-charts]
+* [Bootstrap]
+* [Vue-i18n]
+* [Font Awesome]
+* [Google Font]
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
