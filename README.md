@@ -63,5 +63,16 @@ https://github.com/hexschool/vue-course-api-wiki/wiki
 * 購物車結帳及調整購買品項及數量
 * 套用優惠券及填寫收件資料
 * 呈現訂單資訊
+### 願望清單
+* 可直接刪除願望商品，及直接加入購物車
+## 後台介紹
+
+### 管理者登入
+* 管理者登入及登出
+### 商品管理
+* 商品管理：新增、修改及刪除商品資訊
+* 訂單管理：查看訂單資訊
+* 優惠券管理：新增、修改及刪除優惠券內容
+* 報表分析：以圖表呈現訂單及營收狀況
 ### Customize configuration
 See [Configuration Reference]
