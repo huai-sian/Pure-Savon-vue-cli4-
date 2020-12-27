@@ -1,5 +1,6 @@
 # Pure-Savon(Vue-Cli4)
 
+![](https://github.com/huai-sian/BMI-caculator/blob/main/%E8%9E%A2%E5%B9%95%E5%BF%AB%E7%85%A7%202020-12-26%20%E4%B8%8B%E5%8D%8811.40.41.png)
 ## Demo
 
 https://huai-sian.github.io/Pure-Savon-vue-cli4-/#/
@@ -10,7 +11,7 @@ https://huai-sian.github.io/Pure-Savon-vue-cli4-/#/
   - 中英文語言切換
   - 首頁：商品導覽、圖片輪播、聯絡窗口
   - 商品列表：系列選擇、直接加入購物車、加入願望清單
-  - 商品詳情資訊：選擇數量加入購物車、類似商品
+  - 商品詳情資訊：選擇數量加入購物車、相關商品
   - 購物車結帳：優惠券套用、訂單成立流程
   - 願望清單：直接加入購物車
 * 後台
@@ -47,8 +48,20 @@ https://huai-sian.github.io/Pure-Savon-vue-cli4-/#/
 https://github.com/hexschool/vue-course-api-wiki/wiki
 ## 前台介紹
 
+### 首頁
 * 中英文語言切換:於footer處選擇語言，分為繁體中文與英文（English）
+* 商品導覽、圖片輪播、聯絡窗口
 ![中英文語言切換](https://github.com/huai-sian/Pure-Savon-vue-cli4-/blob/master/language-transform.gif)
-![](https://github.com/huai-sian/BMI-caculator/blob/main/%E8%9E%A2%E5%B9%95%E5%BF%AB%E7%85%A7%202020-12-26%20%E4%B8%8B%E5%8D%8811.40.41.png)
+### 商品列表
+* 選擇商品系列
+* 點選購物車圖示加入購物車
+* 點選愛心圖示加入願望清單
+### 商品詳情資訊
+* 選擇數量加入購物車
+* 顯示同系列的相關商品
+### 購物車結帳
+* 購物車結帳及調整購買品項及數量
+* 套用優惠券及填寫收件資料
+* 呈現訂單資訊
 ### Customize configuration
 See [Configuration Reference]
