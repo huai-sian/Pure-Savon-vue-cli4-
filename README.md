@@ -47,7 +47,6 @@ https://huai-sian.github.io/Pure-Savon-vue-cli4-/#/
 https://github.com/hexschool/vue-course-api-wiki/wiki
 ## 前台介紹
 
-### 
 * 中英文語言切換:於footer處選擇語言，分為繁體中文與英文（English）
 ![中英文語言切換](https://github.com/huai-sian/Pure-Savon-vue-cli4-/blob/master/language-transform.gif)
 ![](https://github.com/huai-sian/BMI-caculator/blob/main/%E8%9E%A2%E5%B9%95%E5%BF%AB%E7%85%A7%202020-12-26%20%E4%B8%8B%E5%8D%8811.40.41.png)
