@@ -49,6 +49,6 @@ https://github.com/hexschool/vue-course-api-wiki/wiki
 
 ### 
 * 中英文語言切換:於footer處選擇語言，分為繁體中文與英文（English）
-![中英文語言切換](https://www.google.com/url?sa=i&url=https%3A%2F%2Fnews.harvard.edu%2Fgazette%2Fstory%2F2020%2F03%2Fmoderate-egg-consumption-gets-the-green-light-again%2F&psig=AOvVaw3tv4onfEQH9abgZUGySxM_&ust=1609136779846000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCMjjreXD7e0CFQAAAAAdAAAAABAD)
+![中英文語言切換](https://github.com/huai-sian/Pure-Savon-vue-cli4-/blob/master/language-transform.gif)
 ### Customize configuration
 See [Configuration Reference]
