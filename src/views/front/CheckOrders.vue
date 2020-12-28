@@ -191,7 +191,8 @@ export default {
     },
     goNextPage () {
       this.goNext = true
-      this.$router.push('billinginfo')
+      this.$router.push('/billinginfo')
+      console.log('push')
     }
   },
   beforeRouteLeave (to, from, next) {

@@ -3,7 +3,7 @@
     <div class="container analysis">
       <h2 class="h2 text-center mt-2">報表</h2>
       <hr class="my-5">
-      <div class="row">
+      <div class="row" v-if='allOrders'>
         <div class="col-lg-4 col-sm-6 col-12">
           <h3 class="h3 text-center">商品總計</h3>
           <ve-pie :data='chartData1' class="pie_chart"></ve-pie>
