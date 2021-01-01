@@ -1,7 +1,5 @@
 <template>
   <div class="billinginfo">
-    <loading :active.sync="isLoading" >
-    </loading>
     <Bannerimg>
       <ProgressStep :current="step"></ProgressStep>
     </Bannerimg>
@@ -62,7 +60,7 @@
                     </label>
                     <ValidationProvider rules="required" v-slot="{ errors , classes }">
                       <div :class="classes">
-                        <input type="text" id="buyer-name" class="form-control" placeholder="請輸入姓名" v-model="form.user.name" v-focus>
+                        <input type="text" id="buyer-name" class="form-control" placeholder="請輸入姓名" v-model="form.user.name">
                         <span class="text-danger">{{ errors[0] }}</span>
                       </div>
                     </ValidationProvider>
@@ -157,7 +155,6 @@ export default {
       carts: [],
       cartactual: [],
       cartLength: 0,
-      isLoading: false,
       coupon_num: '',
       coupon_success: true,
       clicked: false,
@@ -182,7 +179,6 @@ export default {
     getCart () {
       const vm = this
       const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/cart`
-      vm.isLoading = true
       vm.$http.get(api).then((response) => {
         if (response.data.success) {
           vm.carts = response.data.data
@@ -192,7 +188,6 @@ export default {
             vm.cartLength += item.qty
           })
         }
-        vm.isLoading = false
       })
     },
     addCouponCode () {
