@@ -1,0 +1,25 @@
+# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
+
+name: deploy
+
+on:
+  push:
+    branches: [ "master" ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2.3.1
+      - name: Install and Build 🔧
+        run: |
+          npm install
+          npm run build
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@4.1.4
+        with:
+          ACCESS_TOKEN: ${{ secrets.COMMIT_SECRET }} # Settings > Secret 建立的 ACCESS_TOKEN，推同個 repo 的話可以不需要
+          BRANCH: gh-pages # deploy 到 gh-pages 這個分支
+          FOLDER: dist # build 後的資料夾
